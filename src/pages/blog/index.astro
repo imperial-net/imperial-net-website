@@ -2,22 +2,104 @@
 import Layout from "../../layouts/BaseLayout.astro";
 import BlogCard from '../../components/BlogCard.astro';
 
-// Cargar todos los posts .md de la carpeta actual
-const posts = await Astro.glob("./*.astro");
+// Posts estáticos del blog por ahora
+const blogPosts = [
+  {
+    url: "/blog/por-que-digitalizar-tu-empresa",
+    frontmatter: {
+      title: "👉 Por qué digitalizar tu empresa es una inversión rentable",
+      description: "Descubrí cómo simplificar tareas y ahorrar dinero al llevar tus procesos a la pantalla.",
+      date: "2025-08-02"
+    }
+  },
+  {
+    url: "/blog/automatizacion-para-pymes",
+    frontmatter: {
+      title: "👉 Automatización para PyMEs: cómo reducir costos y errores",
+      description: "La automatización te ayuda a ahorrar tiempo, reducir errores y crecer sin complicaciones. Descubrí ejemplos simples que podés aplicar hoy en tu negocio.",
+      date: "2025-08-01"
+    }
+  },
+  {
+    url: "/blog/como-elegir-un-software-a-medida",
+    frontmatter: {
+      title: "👉 Elegir software a medida: la clave para que tu negocio no se complique",
+      description: "Conocé qué factores tenés que considerar al desarrollar o contratar un sistema hecho para tu negocio.",
+      date: "2025-07-30"
+    }
+  }
+];
 ---
 
 <Layout
   title="Blog | Imperial Net"
   description="Consejos simples sobre digitalización y software para PyMEs"
 >
-  <section class="py-5 text-white bg-dark">
+  <!-- Hero del Blog -->
+  <section class="py-5 bg-gradient text-white">
     <div class="container">
-      <h1 class="mb-4 text-center">Blog</h1>
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
+            📚 Nuestro Blog
+          </h1>
+          <p class="lead mb-4" data-aos="fade-up" data-aos-delay="150">
+            Contenido valioso para hacer crecer tu negocio con tecnología. 
+            Aprende sobre digitalización, automatización y desarrollo de software.
+          </p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="300">
+            <span class="badge bg-primary fs-6 px-3 py-2">💼 PyMEs</span>
+            <span class="badge bg-success fs-6 px-3 py-2">🤖 Automatización</span>
+            <span class="badge bg-info fs-6 px-3 py-2">💻 Software</span>
+            <span class="badge bg-warning fs-6 px-3 py-2">📈 Crecimiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artículos del Blog -->
+  <section class="py-5 text-white">
+    <div class="container">
       <div class="row g-4">
-        {posts.map((post) => (
-          <BlogCard post={post} />
+        {blogPosts.map((post, index) => (
+          <div 
+            class="col-md-6 col-lg-4" 
+            data-aos="fade-up" 
+            data-aos-delay={index * 150}
+          >
+            <BlogCard post={post} />
+          </div>
         ))}
+      </div>
+      
+      <!-- Mensaje si no hay más artículos -->
+      <div class="text-center mt-5" data-aos="fade-up">
+        <p class="lead text-light opacity-75 mb-4">
+          ¿Te gustó nuestro contenido? ¡Seguí leyendo!
+        </p>
+        <a 
+          href="/#contact" 
+          class="btn btn-primary btn-lg px-4 py-2 rounded-pill"
+        >
+          Contactanos para más información
+          <i class="bi bi-envelope ms-2"></i>
+        </a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .bg-gradient {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+  
+  .badge {
+    transition: transform 0.3s ease;
+  }
+  
+  .badge:hover {
+    transform: scale(1.05);
+  }
+</style>

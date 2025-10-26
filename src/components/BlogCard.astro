@@ -2,14 +2,71 @@
 const { post } = Astro.props;
 ---
 
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100 bg-secondary border-0 shadow-sm">
-    <div class="card-body">
-      <h5 class="card-title fw-semibold text-white">{post.frontmatter.title}</h5>
-      <p class="card-text text-white">{post.frontmatter.description}</p>
-      <a href={post.url} class="text-white text-decoration-underline">
-        Leer más
-      </a>
+<div class="blog-card h-100">
+  <div class="card h-100 bg-secondary border-0 shadow-lg">
+    <div class="card-body d-flex flex-column p-4">
+      <div class="mb-3">
+        <span class="badge bg-primary mb-2">📖 Artículo</span>
+        {post.frontmatter.date && (
+          <small class="text-light d-block opacity-75">
+            {new Date(post.frontmatter.date).toLocaleDateString('es-AR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </small>
+        )}
+      </div>
+      
+      <h5 class="card-title fw-bold text-white mb-3">
+        {post.frontmatter.title}
+      </h5>
+      
+      <p class="card-text text-light mb-4 flex-grow-1">
+        {post.frontmatter.description}
+      </p>
+      
+      <div class="mt-auto">
+        <a 
+          href={post.url} 
+          class="btn btn-outline-light btn-sm rounded-pill px-3 hover-effect"
+        >
+          Leer artículo
+          <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+  .blog-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .blog-card .card {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .blog-card:hover .card {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hover-effect {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-effect:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(3px);
+  }
+  
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+</style>

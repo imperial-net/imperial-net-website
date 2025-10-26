@@ -1,121 +1,426 @@
-/* Reset específico para tu proyecto */
+/* Variables CSS para consistencia y fácil mantenimiento */
+:root {
+  --navbar-height: 80px;
+  --primary-color: #00aaff;
+  --primary-dark: #0077cc;
+  --accent-color: #104665;
+  --text-color: #ffffff;
+  --glass-bg: rgba(10, 15, 25, 0.85);
+  --glass-border: rgba(0, 170, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+/* Reset específico */
 body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Estilo del navbar con Bootstrap */
+/* Navbar principal con efecto glassmorphism mejorado */
 .navbar {
-  padding: 0rem 2rem;
   position: fixed;
   top: 0;
   width: 100%;
+  height: var(--navbar-height);
+  padding: 0.5rem 2rem;
   z-index: 1000;
-  height: 100px;
-  
+  background: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(25px) saturate(150%);
+  border-bottom: 1px solid rgba(0, 170, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: var(--transition-smooth);
+  will-change: transform, background, box-shadow;
+  animation: fadeInDown 0.8s ease-out;
 }
 
-/* Contenedor central */
+/* Efectos de scroll dinámicos */
+.navbar.scrolled {
+  background: rgba(5, 10, 18, 0.95);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 170, 255, 0.15);
+}
+
+/* Contenedor optimizado */
 .navbar .container {
-  max-width: 1200px;
-  display: flex;
-}
-
-/* Logo y texto */
-.logo {
+  max-width: 1400px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  height: 100%;
+}
+
+/* Logo con microinteracciones mejorado */
+.navbar-brand {
+  transition: var(--transition-fast);
+  will-change: transform;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.03);
 }
 
 .logo-icon {
-  width: 140px;
-  height: 90px;
-  
+  width: 120px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 170, 255, 0.2));
+  transition: var(--transition-fast);
 }
 
-.logo-text {
-  font-weight: bold;
-  color: white;
-  font-size: 1.2rem;
+.navbar-brand:hover .logo-icon {
+  filter: drop-shadow(0 4px 12px rgba(0, 170, 255, 0.4));
 }
 
-/* Ítems del nav */
+/* Navegación moderna mejorada */
 .navbar-nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
+  margin: 0 auto;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
 }
 
 .navbar-nav .nav-link {
-  color: white !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500;
-  transition: color 0.4s;
+  font-size: 0.95rem;
+  padding: 0.5rem 0 !important;
+  text-decoration: none;
+  position: relative;
+  transition: var(--transition-smooth);
+  will-change: color, transform;
+  letter-spacing: 0.3px;
+}
+
+/* Indicador activo/hover animado mejorado */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), #00ccff);
+  border-radius: 1px;
+  transition: var(--transition-smooth);
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
 }
 
 .navbar-nav .nav-link:hover {
-  color:#104665 !important;
+  color: var(--primary-color) !important;
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
 }
 
 
 
-/* Botón “Empezar” */
+/* Botón CTA con efectos avanzados mejorado */
 .btn-empezar {
-  border: 1px solid white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  color: white !important;
-    border: 1px solid #eaecf1;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--text-color) !important;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: all 0.3s !important;
-  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  will-change: transform, box-shadow;
+  box-shadow: 
+    0 4px 15px rgba(0, 170, 255, 0.25),
+    0 0 0 1px rgba(0, 170, 255, 0.1);
+  border: 1px solid rgba(0, 170, 255, 0.3);
+}
+
+.btn-empezar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
 }
 
 .btn-empezar:hover {
-  background:#09293b !important;
-  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 170, 255, 0.4),
+    0 0 0 1px rgba(0, 170, 255, 0.4);
+  background: linear-gradient(135deg, #00ccff, var(--primary-color));
+  border-color: rgba(0, 170, 255, 0.5);
 }
 
-.navbar {
-  background-color: rgba(0, 0, 0, 0.288); 
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6); /* sombra larga y suave */
-  backdrop-filter: blur(15px); 
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+.btn-empezar:hover::before {
+  left: 100%;
+}
+
+.btn-empezar:active {
+  transform: translateY(-1px);
+}
+
+/* Hamburger menu animado */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem;
+  background: transparent;
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  width: 25px;
+  height: 2px;
+  background: var(--text-color);
+  display: block;
+  position: relative;
+  transition: var(--transition-smooth);
+  border-radius: 1px;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: var(--text-color);
+  border-radius: 1px;
+  transition: var(--transition-smooth);
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+/* Animación del hamburger */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 
+/* RESPONSIVE DESIGN MEJORADO */
+
+/* Tablets y dispositivos medianos */
 @media (max-width: 991.98px) {
-  .btn-empezar {
-    display: block;
-    margin: 1rem auto 0 auto; /* margen superior + centrado horizontal */
-    text-align: center;
-    width: auto;
+  .navbar {
+    padding: 0.5rem 1.5rem;
   }
-  .navbar  .navbar-collapse{
-  background-color: #000;
-  box-shadow: 0 8px 40px rgba(1, 0, 0, 0.6); /* sombra larga y suave */
-  backdrop-filter: blur(15px); 
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 15px;
-  border-radius: 10px;
+  
+  .navbar-collapse {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(16, 70, 101, 0.95));
+    backdrop-filter: blur(25px);
+    border-radius: 15px;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.8rem 1rem !important;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background: rgba(0, 170, 255, 0.1);
+    transform: translateX(5px);
+  }
+  
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+  
+  .btn-empezar {
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-self: center;
   }
 }
 
+/* Móviles pequeños */
 @media (max-width: 575.98px) {
   .navbar {
-    padding: 0 1rem; /* reduce padding horizontal */
+    padding: 0.5rem 1rem;
+    height: 80px;
   }
-
-  .logo {
-    margin-left: 0;
-    padding-left: 0;
-  }
-
+  
   .logo-icon {
-    width: 90px; /* opcional: reduce un poco el tamaño si querés */
-    height: auto;
+    width: 100px;
+    height: 60px;
+  }
+  
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem !important;
+  }
+  
+  .btn-empezar {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 260px;
+    width: 100%;
+    align-self: center;
+    margin-top: 1rem;
+    text-align: center;
   }
 }
 
+/* Media query específica para centrar el botón en móviles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  
+  .btn-empezar {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
 
+/* ANIMACIONES Y EFECTOS */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(25px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplicar animación secuencial a los elementos del navbar */
+.navbar-nav .nav-item {
+  animation: slideIn 0.6s ease-out;
+}
+
+.navbar-nav .nav-item:nth-child(1) { animation-delay: 0.1s; }
+.navbar-nav .nav-item:nth-child(2) { animation-delay: 0.2s; }
+.navbar-nav .nav-item:nth-child(3) { animation-delay: 0.3s; }
+.navbar-nav .nav-item:nth-child(4) { animation-delay: 0.4s; }
+.navbar-nav .nav-item:nth-child(5) { animation-delay: 0.5s; }
+
+.btn-empezar {
+  animation: slideIn 0.6s ease-out 0.6s both;
+}
+
+/* ACCESIBILIDAD Y UX */
+.navbar-nav .nav-link:focus,
+.btn-empezar:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* OPTIMIZACIONES DE PERFORMANCE */
+.navbar,
+.navbar-nav .nav-link,
+.btn-empezar {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,1 +1,1 @@
-export const WHATSAPP_PHONE = import.meta.env.PUBLIC_WHATSAPP_PHONE ?? '5492923530179';
+export const WHATSAPP_PHONE = import.meta.env.PUBLIC_WHATSAPP_PHONE ?? '5492392556779';
