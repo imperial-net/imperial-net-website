@@ -1,0 +1,21 @@
+# robots.txt para Imperial Net
+# https://imperial-net.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Bloquear recursos innecesarios para crawlers
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+
+# Permitir acceso a recursos estáticos importantes
+Allow: /img/
+Allow: /css/
+Allow: /videos/
+
+# Sitemap
+Sitemap: https://imperial-net.com/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga (opcional)
+Crawl-delay: 1
