@@ -14,11 +14,11 @@ const { title, description } = Astro.props;
   <link rel="canonical" href={`https://imperial-net.com${Astro.url.pathname}`} />
 
   <!-- Title and Description -->
-  <title>{title || "Imperial Net | Soluciones Digitales y Software a Medida para PyMEs"}</title>
-  <meta name="description" content={description || "Transforma tu empresa con Imperial Net: desarrollo de software a medida, automatización, consultoría tecnológica y digitalización para PyMEs. ¡Potencia tu negocio hoy!"} />
+  <title>{title || "Imperial Net | Software a Medida en Trenque Lauquen | Desarrollo Web"}</title>
+  <meta name="description" content={description || "Desarrollo de software a medida, sitios web y páginas web en Trenque Lauquen. Imperial Net: automatización, digitalización y soluciones digitales para PyMEs. ¡Potencia tu negocio!"} />
 
   <!-- SEO Keywords -->
-  <meta name="keywords" content="software a medida, desarrollo web, automatización, PyME, digitalización, sistemas empresariales, Imperial Net, soluciones digitales, consultoría tecnológica, transformación digital, innovación, tecnología" />
+  <meta name="keywords" content="software a medida, desarrollo web, automatización, PyME, digitalización, sistemas empresariales, Imperial Net, soluciones digitales, consultoría tecnológica, transformación digital, innovación, tecnología, sitios web Trenque Lauquen, páginas web Trenque Lauquen, software Trenque Lauquen, programas Trenque Lauquen, software a medida Trenque Lauquen, desarrollo web Trenque Lauquen, diseño web Trenque Lauquen, aplicaciones Trenque Lauquen" />
 
   <!-- Author -->
   <meta name="author" content="Imperial Net" />
@@ -51,37 +51,108 @@ const { title, description } = Astro.props;
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-    <!-- Datos estructurados para SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Imperial Net",
-      "url": "https://imperial-net.com/",
-      "logo": "https://imperial-net.com/img/logo.webp",
-      "description": "Transforma tu empresa con Imperial Net: desarrollo de software a medida, automatización, consultoría tecnológica y digitalización para PyMEs.",
-      "sameAs": [
-        "https://www.facebook.com/imperialnet",
-        "https://www.linkedin.com/company/imperialnet/"
+    <!-- Datos estructurados para SEO - Organization (para el logo en Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Imperial Net",
+    "url": "https://imperial-net.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imperial-net.com/img/logo.webp",
+      "width": 1200,
+      "height": 1200
+    },
+    "description": "Desarrollo de software a medida, sitios web y soluciones digitales para PyMEs en Trenque Lauquen y alrededores.",
+    "sameAs": [
+      "https://www.linkedin.com/company/imperialnet",
+      "https://www.instagram.com/imperialnet",
+      "https://www.facebook.com/imperialnet"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+
+  <!-- LocalBusiness Schema (para SEO local en Trenque Lauquen) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Imperial Net",
+    "image": "https://imperial-net.com/img/logo.webp",
+    "url": "https://imperial-net.com",
+    "telephone": "+54-9-2392-556779",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Trenque Lauquen",
+      "addressLocality": "Trenque Lauquen",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -35.9735,
+      "longitude": -62.7364
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/imperialnet",
+      "https://www.instagram.com/imperialnet",
+      "https://www.facebook.com/imperialnet"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Trenque Lauquen"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Software y Desarrollo Web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Desarrollo de Software a Medida",
+            "description": "Software personalizado para PyMEs en Trenque Lauquen"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Desarrollo de Sitios Web",
+            "description": "Diseño y desarrollo de páginas web profesionales"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automatización de Procesos",
+            "description": "Automatización y digitalización de procesos empresariales"
+          }
+        }
       ]
     }
-    </script>
-    
-    <!-- Structured Data (Google Rich Snippets) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Imperial Net",
-        "url": "https://imperial-net.com",
-        "logo": "https://imperial-net.com/img/logo.webp",
-        "description": "Desarrollo de software a medida y soluciones digitales para PyMEs.",
-        "sameAs": [
-          "https://www.linkedin.com/company/imperialnet",
-          "https://www.instagram.com/imperialnet"
-        ]
-      }
-    </script>
+  }
+  </script>
 
   <!-- Preconnect a CDNs externos para mejorar performance -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
