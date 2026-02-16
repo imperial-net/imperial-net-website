@@ -11,14 +11,29 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
+logs/
+*.log
 
 # environment variables
 .env
+.env.*
 .env.production
+.env.local
+env-config.php
+
+# sensitive files
+src/services/php/config/credentials.php
+*.pem
+*.key
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db

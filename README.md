@@ -1,6 +1,6 @@
-# Imperial Net - Sitio Web Corporativo
+# Imperial-Net - Sitio Web Corporativo
 
-Sitio web oficial de Imperial Net - Soluciones de Software a Medida para PyMEs. Plataforma moderna desarrollada con Astro que ofrece información sobre nuestros servicios, casos de éxito, testimonios y blog.
+Sitio web oficial de Imperial-Net - Soluciones de Software a Medida para PyMEs. Plataforma moderna desarrollada con Astro que ofrece información sobre nuestros servicios, casos de éxito, testimonios y blog.
 
 ## 🚀 Tecnologías Utilizadas
 
@@ -9,6 +9,7 @@ Sitio web oficial de Imperial Net - Soluciones de Software a Medida para PyMEs. 
 - **[AOS 2.3.4](https://michalsnik.github.io/aos/)** - Animate On Scroll library
 - **[Bootstrap Icons](https://icons.getbootstrap.com)** - Biblioteca de iconos
 - **[Sharp](https://sharp.pixelplumbing.com/)** - Procesamiento de imágenes de alto rendimiento
+- **[PHPMailer](https://github.com/PHPMailer/PHPMailer)** - Servicio de envío de emails SMTP
 
 ## 📁 Estructura del Proyecto
 
@@ -162,30 +163,7 @@ npm run preview
 npm run astro
 ```
 
-## 📊 Optimizaciones Implementadas
-
-### Antes vs Después
-
-| Métrica | Antes | Después | Mejora |
-|---------|-------|---------|--------|
-| **Imágenes totales** | 384KB | 150KB | -61% |
-| **CSS global** | 2459 líneas | 2 líneas + módulos | Modular |
-| **Assets public** | 12MB | 2.5MB | -79% |
-| **Requests externos** | +1 (Voiceflow) | 0 extras | Eliminado |
-
-### Performance
-
-#### Critical Resources
-- ✅ Preconnect a jsdelivr.net y unpkg.com
-- ✅ DNS-prefetch configurado
-- ✅ Recursos críticos cargados primero
-
-#### Lazy Loading
-- ✅ CSS no crítico (Bootstrap Icons, AOS)
-- ✅ Scripts con defer
-- ✅ Video con autoplay optimizado
-
-## 🔍 SEO y Metadatos
+##  SEO y Metadatos
 
 ### URLs del Sitio
 - Principal: `https://imperial-net.com`
@@ -245,25 +223,58 @@ npm run build
 # Output en: dist/
 ```
 
-## 📈 Roadmap Futuro
+## � Servicio de Email
 
-- [ ] Implementar PWA completa
-- [ ] Añadir modo oscuro
-- [ ] Multiidioma (ES/EN)
-- [ ] Blog con CMS headless
-- [ ] Sistema de newsletter
-- [ ] Chat en vivo alternativo
+El sitio incluye un servicio de email PHP con PHPMailer para el formulario de contacto.
+
+### Estructura del Servicio
+
+```
+src/services/
+├── api/
+│   └── _send-email.php      # Endpoint API
+├── email/
+│   ├── EmailService.php     # Clase principal
+│   ├── PHPMailer/           # Librería PHPMailer
+│   └── templates/           # Templates HTML de emails
+│       ├── consultation-email.html
+│       └── confirmation-email.html
+└── php/
+    ├── config/
+    │   └── mail.php         # Configuración
+    └── utils/
+        └── helpers.php      # Funciones auxiliares
+```
+
+### Configuración
+
+Crear un archivo `.env` en la raíz del proyecto:
+
+```env
+SMTP_HOST=smtp.tuservidor.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=tu-email@dominio.com
+SMTP_PASS=tu-password
+RECIPIENT_EMAIL=destinatario@dominio.com
+```
+
+### Deployment del Servicio de Email
+
+Para producción, copiar la carpeta `src/services` a `public/services` o configurar el servidor PHP correspondientemente.
+
 
 ## 📄 Licencia
 
-© 2025 Imperial Net. Todos los derechos reservados.
+© 2025 Imperial-Net. Todos los derechos reservados.
 
 ## 👥 Contacto
 
 - **Email**: info@imperial-net.com
 - **WhatsApp**: +54 9 2392 55-6779
+- **Web**: [https://imperial-net.com](https://imperial-net.com)
 - **Ubicación**: Argentina
 
 ---
 
-**Desarrollado con** ❤️ **por Imperial Net**
+**Desarrollado con** ❤️ **por Imperial-Net**
