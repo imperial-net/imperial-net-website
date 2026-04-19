@@ -15,28 +15,28 @@ import "../../public/css/hero-section.css";
   <!-- Contenido principal -->
   <div class="container hero-content">
     <div class="row justify-content-center">
-      <div class="col-lg-10 col-xl-8 text-center">
+      <div class="col-lg-10 col-xl-8 text-center" data-reveal-stagger>
         
         <!-- Badge superior -->
-        <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+        <div class="hero-badge">
           <i class="bi bi-lightning-charge"></i>
           <span>Transformación Digital</span>
         </div>
 
         <!-- Título principal -->
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-          Digitalizá tu empresa.<br>
+        <h1 class="hero-title">
+          Digitalizá tu negocio.<br>
           <span class="text-gradient">Crecé sin límites.</span>
         </h1>
 
         <!-- Subtítulo -->
-        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+        <p class="hero-subtitle">
           Automatizamos procesos, optimizamos tu tiempo y llevamos tu negocio al siguiente nivel con
           <span class="highlight">software personalizado</span> para PyMEs de Trenque Lauquen y la región.
         </p>
 
         <!-- Botones de acción -->
-        <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
+        <div class="hero-actions">
           <a href="#contacto" class="btn-primary-hero">
             <i class="bi bi-rocket-takeoff"></i>
             Quiero digitalizar mi negocio
@@ -48,7 +48,7 @@ import "../../public/css/hero-section.css";
         </div>
 
         <!-- Indicadores de confianza -->
-        <div class="hero-trust" data-aos="fade-up" data-aos-delay="800">
+        <div class="hero-trust">
           <div class="trust-item">
             <i class="bi bi-shield-check"></i>
             <span>100% Seguro</span>
@@ -75,7 +75,7 @@ import "../../public/css/hero-section.css";
   </div>
 
   <!-- Scroll indicator -->
-  <div class="scroll-indicator" data-aos="fade-in" data-aos-delay="1000">
+  <div class="scroll-indicator" data-reveal>
     <span>Descubrí más</span>
     <i class="bi bi-chevron-down"></i>
   </div>
@@ -102,19 +102,26 @@ import "../../public/css/hero-section.css";
       });
     }
     
-    // Ocultar scroll indicator al hacer scroll
+    // Ocultar scroll indicator al hacer scroll (throttled con rAF)
     let scrolled = false;
+    let indicatorTicking = false;
+    const indicator = scrollIndicator as HTMLElement | null;
     window.addEventListener('scroll', function() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > 100 && !scrolled && scrollIndicator) {
-        (scrollIndicator as HTMLElement).style.opacity = '0';
-        (scrollIndicator as HTMLElement).style.transform = 'translateX(-50%) translateY(20px)';
-        scrolled = true;
-      } else if (scrollTop <= 100 && scrolled && scrollIndicator) {
-        (scrollIndicator as HTMLElement).style.opacity = '1';
-        (scrollIndicator as HTMLElement).style.transform = 'translateX(-50%) translateY(0)';
-        scrolled = false;
+      if (!indicatorTicking) {
+        requestAnimationFrame(function() {
+          const scrollTop = window.scrollY;
+          if (scrollTop > 100 && !scrolled && indicator) {
+            indicator.style.opacity = '0';
+            indicator.style.transform = 'translateX(-50%) translateY(20px)';
+            scrolled = true;
+          } else if (scrollTop <= 100 && scrolled && indicator) {
+            indicator.style.opacity = '1';
+            indicator.style.transform = 'translateX(-50%) translateY(0)';
+            scrolled = false;
+          }
+          indicatorTicking = false;
+        });
+        indicatorTicking = true;
       }
     }, { passive: true });
   });

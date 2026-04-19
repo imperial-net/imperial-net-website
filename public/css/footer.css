@@ -1,0 +1,245 @@
+.footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer .footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.footer .bg-pattern {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 2;
+}
+
+.footer .footer-main {
+  padding: 80px 0 40px 0;
+}
+
+.footer .brand-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #00ccff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer .brand-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer .brand-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.footer .feature-item i {
+  color: #00ccff;
+  font-size: 1rem;
+}
+
+.footer .section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer .footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer .footer-links a:hover {
+  color: #00ccff;
+  transform: translateX(5px);
+}
+
+.footer .contact-info {
+  margin-bottom: 2rem;
+}
+
+.footer .contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.footer .contact-item i {
+  color: #00ccff;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer .contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .contact-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2px;
+}
+
+.footer .contact-details a,
+.footer .contact-details span {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer .contact-details a:hover {
+  color: #00ccff;
+}
+
+.footer .social-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer .social-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer .social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.footer .social-btn.whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+}
+
+.footer .social-btn.email {
+  background: linear-gradient(135deg, #ea4335, #c23321);
+  color: white;
+}
+
+.footer .social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer .footer-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 0;
+}
+
+.footer .footer-bottom {
+  padding: 30px 0;
+}
+
+.footer .copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer .footer-badges {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer .location-badge {
+  background: linear-gradient(135deg, rgba(0, 170, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer .location-badge i {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer .footer-main {
+    padding: 60px 0 30px 0;
+  }
+
+  .footer .footer-badges {
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  .footer .footer-bottom {
+    text-align: center;
+  }
+
+  .footer .social-buttons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer .brand-title {
+    font-size: 1.5rem;
+  }
+
+  .footer .footer-main {
+    padding: 50px 0 20px 0;
+  }
+}

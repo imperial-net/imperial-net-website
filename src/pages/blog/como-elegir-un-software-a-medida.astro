@@ -1,72 +1,112 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
-  title: "👉 Elegir software a medida: la clave para que tu negocio no se complique",
-  description: "Elegir software no tiene por qué ser un dolor de cabeza. Descubrí cómo definir tus necesidades, probar antes de decidir y asegurarte soporte sin complicaciones.",
-  date: "2025-08-02"
+  title: "Elegir software a medida: la clave para que tu negocio no se complique",
+  description: "¿Cómo elegir el software correcto para tu PyME? Descubrí qué preguntar, qué errores evitar y cómo asegurarte de que el sistema crezca con tu negocio.",
+  date: "2025-06-10"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/como-elegir-un-software-a-medida",
+  "mainEntityOfPage": "https://imperial-net.com/blog/como-elegir-un-software-a-medida"
 };
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
-  <section class="py-5 text-white bg-dark">
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
     <div class="container">
-      <h1 class="mb-5 text-center">{frontmatter.title}</h1>
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-gear"></i> Software a medida
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 10 de junio de 2025</span>
+        <span><i class="bi bi-clock"></i> 4 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
 
-      <p class="lead mb-5 text-center" data-aos="fade-up">
-        Elegir software no tiene por qué ser un dolor de cabeza.  
-        Descubrí cómo definir tus necesidades, probar antes de decidir  
-        y asegurarte soporte sin complicaciones.
-      </p>
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
 
-      <article class="mb-5" data-aos="fade-up">
+      <div class="mb-5">
         <h2 class="h4 mb-3">El primer paso: mirá hacia adentro</h2>
         <p>
-          Antes de salir corriendo a buscar proveedores, preguntate: 
-          <em>¿qué tareas me consumen más tiempo?</em>. Ventas, stock, turnos... 
-          cuanto más claro tengas el objetivo, más sencillo será comparar opciones 
-          y explicarle a un desarrollador qué necesitás realmente.
+          Antes de salir corriendo a buscar proveedores, preguntate: ¿qué tareas me consumen más tiempo? Ventas, stock, turnos... cuanto más claro tengas el objetivo, más sencillo será comparar opciones y explicarle a un desarrollador qué necesitás realmente.
         </p>
-      </article>
+        <p>
+          Muchas PyMEs cometen el error de buscar una solución antes de entender bien el problema. El resultado: terminan pagando por funciones que no usan y careciendo de las que sí necesitan. Tomarse el tiempo de mapear los procesos actuales, aunque sea en papel, es el mejor punto de partida.
+        </p>
+      </div>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="100">
+      <article class="mb-5">
         <h2 class="h4 mb-3">Un sistema que crezca con vos</h2>
         <p>
-          Tu negocio hoy no será igual dentro de un año. Elegí un software que 
-          te permita agregar usuarios, sumar nuevas funciones o integrarse con 
-          otras herramientas. Así no tendrás que empezar de cero cada vez que 
-          tu PyME crezca.
+          Tu negocio hoy no será igual dentro de un año. Elegí un software que te permita agregar usuarios, sumar nuevas funciones o integrarse con otras herramientas. Así no tendrás que empezar de cero cada vez que tu PyME crezca.
+        </p>
+        <p>
+          La escalabilidad no es un lujo: es una condición necesaria para no quedar atrapado en un sistema que funcionó bien al principio pero que hoy frena el crecimiento. Un software a medida puede diseñarse desde el principio con esa flexibilidad incorporada.
         </p>
       </article>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="200">
+      <article class="mb-5">
         <h2 class="h4 mb-3">Probá, no te quedes con la teoría</h2>
         <p>
-          Una demo o un prototipo dicen más que mil folletos. Usalo unos días con 
-          tu equipo, pediles comentarios y observá si realmente simplifica las tareas. 
-          Si todos entienden cómo funciona y se sienten cómodos, vas por buen camino.
+          Una demo o un prototipo dicen más que mil folletos. Usalo unos días con tu equipo, pediles comentarios y observá si realmente simplifica las tareas. Si todos entienden cómo funciona y se sienten cómodos, vas por buen camino.
+        </p>
+        <p>
+          Prestá atención a la curva de aprendizaje: un sistema muy potente que nadie usa porque es complicado no sirve de nada. La adopción del equipo es tan importante como las funcionalidades técnicas.
         </p>
       </article>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="300">
+      <article class="mb-5">
         <h2 class="h4 mb-3">El valor del soporte y la capacitación</h2>
         <p>
-          Un buen software no está completo sin un equipo que te acompañe. Asegurate 
-          de que el proveedor ofrezca capacitaciones claras y un canal rápido de 
-          contacto. Resolver dudas a tiempo puede marcar la diferencia entre avanzar 
-          o frustrarse.
+          Un buen software no está completo sin un equipo que te acompañe. Asegurate de que el proveedor ofrezca capacitaciones claras y un canal rápido de contacto. Resolver dudas a tiempo puede marcar la diferencia entre avanzar o frustrarse.
+        </p>
+        <p>
+          También es importante que el proveedor conozca tu rubro. No es lo mismo desarrollar un sistema para un consultorio médico que para una distribuidora. El contexto específico del negocio impacta directamente en qué funciones priorizar y cómo diseñar los flujos de trabajo.
         </p>
       </article>
 
-      <article data-aos="fade-up" data-aos-delay="400">
+      <article>
         <h2 class="h4 mb-3">Tomá la decisión con confianza</h2>
         <p>
-          Invertir unas semanas en elegir bien puede ahorrarte meses de dolores de cabeza. 
-          Un software a medida, pensado para tu PyME, no solo evita gastos innecesarios: 
-          se convierte en un aliado para crecer. Y si necesitás orientación, estamos para 
-          ayudarte a que la tecnología trabaje por vos.
+          Invertir unas semanas en elegir bien puede ahorrarte meses de dolores de cabeza. Un software a medida, pensado para tu PyME, no solo evita gastos innecesarios: se convierte en un aliado para crecer.
+        </p>
+        <p>
+          Las preguntas clave antes de decidir: ¿el proveedor entiende mi negocio? ¿Puedo ver el sistema funcionando antes de pagar? ¿Qué pasa si necesito cambios después? ¿Hay soporte post-entrega? Las respuestas a estas preguntas dicen mucho más que cualquier presentación comercial.
         </p>
       </article>
+
     </div>
-  </section>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Buscás el software ideal para tu negocio?</h3>
+      <p>En Imperial Net desarrollamos sistemas a medida que se adaptan a tu PyME. Contanos tu caso y te asesoramos sin compromiso.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
 </Layout>

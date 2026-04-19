@@ -1,30 +1,31 @@
 ---
 import BlogCard from "./BlogCard.astro";
+import "../../public/css/blog-section.css";
 
 // Posts estáticos del blog por ahora
 const blogPosts = [
   {
-    url: "/blog/por-que-digitalizar-tu-empresa",
+    url: "/blog/gestion-inventario-pymes",
     frontmatter: {
-      title: "👉 Por qué digitalizar tu empresa es una inversión rentable",
-      description: "Descubrí cómo simplificar tareas y ahorrar dinero al llevar tus procesos a la pantalla.",
-      date: "2025-08-02"
+      title: "Inventario sin caos: cómo evitar quiebres de stock y sobrestock en tu PyME",
+      description: "Un mal manejo del inventario cuesta plata: productos vencidos, ventas perdidas, capital inmovilizado. Descubrí cómo digitalizarlo y ganar control real sobre tu stock.",
+      date: "2026-01-14"
     }
   },
   {
-    url: "/blog/automatizacion-para-pymes",
+    url: "/blog/atencion-cliente-digital-pymes",
     frontmatter: {
-      title: "👉 Automatización para PyMEs: cómo reducir costos y errores",
-      description: "La automatización te ayuda a ahorrar tiempo, reducir errores y crecer sin complicaciones. Descubrí ejemplos simples que podés aplicar hoy en tu negocio.",
-      date: "2025-08-01"
+      title: "Atención al cliente digital: respondé más rápido y perdé menos ventas",
+      description: "El cliente que no recibe respuesta rápida se va a la competencia. Descubrí cómo las PyMEs pueden mejorar su atención sin contratar más personal.",
+      date: "2026-02-05"
     }
   },
   {
-    url: "/blog/como-elegir-un-software-a-medida",
+    url: "/blog/reportes-metricas-pymes",
     frontmatter: {
-      title: "👉 Elegir software a medida: la clave para que tu negocio no se complique",
-      description: "Conocé qué factores tenés que considerar al desarrollar o contratar un sistema hecho para tu negocio.",
-      date: "2025-07-30"
+      title: "Datos que importan: cómo tomar mejores decisiones en tu PyME con reportes simples",
+      description: "No necesitás ser analista de datos para usar información real en tu negocio. Descubrí qué métricas mirar y cómo un buen sistema te las muestra automáticamente.",
+      date: "2026-03-18"
     }
   }
 ];
@@ -35,19 +36,17 @@ const blogPosts = [
   <div class="gradient-fade-top"></div>
   
   <div class="container pt-5 pb-5">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold mb-3">📚 Nuestro Blog</h2>
+    <div class="text-center mb-5" data-reveal>
+      <h2 class="fw-bold mb-3">Nuestro Blog</h2>
       <p class="lead mb-4">
         Contenido valioso para hacer crecer tu negocio con tecnología
       </p>
     </div>
     
-    <div class="row g-4 mb-5">
+    <div class="row g-4 mb-5" data-reveal-stagger>
       {blogPosts.map((post, index) => (
         <div 
-          class="col-md-6 col-lg-4" 
-          data-aos="fade-up" 
-          data-aos-delay={index * 150}
+          class="col-md-6 col-lg-4"
         >
           <BlogCard post={post} />
         </div>
@@ -55,7 +54,7 @@ const blogPosts = [
     </div>
 
     <!-- CTA para ver más artículos -->
-    <div class="text-center" data-aos="fade-up" data-aos-delay="450">
+    <div class="text-center" data-reveal>
       <a 
         href="/blog" 
         class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill hover-scale"
@@ -70,13 +69,3 @@ const blogPosts = [
   <div class="gradient-fade-bottom"></div>
 </section>
 
-<style>
-  .hover-scale {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .hover-scale:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
-  }
-</style>

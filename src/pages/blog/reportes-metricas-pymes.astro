@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import "../../../public/css/blog-article.css";
+
+export const frontmatter = {
+  title: "Datos que importan: cómo tomar mejores decisiones en tu PyME con reportes simples",
+  description: "Tomá mejores decisiones en tu PyME con reportes simples. Descubrí qué métricas importan, cómo leerlas y qué herramientas te las muestran automáticamente.",
+  date: "2026-03-18"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/reportes-metricas-pymes",
+  "mainEntityOfPage": "https://imperial-net.com/blog/reportes-metricas-pymes"
+};
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
+    <div class="container">
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-bar-chart-line"></i> Reportes y métricas
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 18 de marzo de 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
+
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
+
+      <div class="mb-5">
+        <h2 class="h4 mb-3">¿Estás tomando decisiones con datos o con intuición?</h2>
+        <p>
+          La intuición tiene valor: la experiencia en el rubro, el conocimiento de los clientes, el olfato para detectar oportunidades. Pero cuando una PyME crece, la intuición sola empieza a fallar. Los problemas se vuelven más complejos, las variables se multiplican, y las decisiones tomadas «a ojo» empiezan a tener consecuencias más grandes.
+        </p>
+        <p>
+          La alternativa no es contratar un equipo de analistas ni implementar sistemas complicados. Es tener acceso, de forma simple y rápida, a los datos básicos del negocio: cuánto se vendió, qué se vendió más, cuáles clientes compraron, cuánto entra y cuánto sale. Con esa información, las decisiones dejan de ser apuestas y se convierten en estrategia.
+        </p>
+      </div>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Las métricas que toda PyME debería mirar</h2>
+        <p>
+          No todas las métricas son igual de útiles para todos los negocios, pero hay un núcleo que aplica casi siempre:
+        </p>
+        <ul>
+          <li><strong>Ventas por período:</strong> ¿Cuánto vendiste esta semana, este mes, este trimestre? Compararlo con períodos anteriores te muestra si estás creciendo, estancado o en caída.</li>
+          <li><strong>Productos o servicios más vendidos:</strong> ¿Qué es lo que más mueve tu negocio? Con esa información podés priorizar stock, esfuerzo de marketing y energía del equipo.</li>
+          <li><strong>Ticket promedio:</strong> ¿Cuánto gasta en promedio cada cliente? Si ese número sube, es una buena señal. Si baja, puede ser un síntoma de algo que hay que revisar.</li>
+          <li><strong>Clientes nuevos vs. recurrentes:</strong> ¿Estás atrayendo nuevos clientes o vendiendo siempre a los mismos? El balance dice mucho sobre la salud del negocio.</li>
+          <li><strong>Morosidad y cobranza:</strong> ¿Cuánto se debe? ¿Hay clientes con pagos atrasados? Saber esto a tiempo permite actuar antes de que el problema crezca.</li>
+        </ul>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Del dato al reporte: la diferencia que hace un sistema integrado</h2>
+        <p>
+          Tener datos no es lo mismo que tener información útil. Si las ventas están en un Excel, los pagos en otro, el inventario en un cuaderno y los clientes en la agenda del celular, construir cualquier reporte requiere horas de trabajo manual y tiene un alto riesgo de error.
+        </p>
+        <p>
+          Un sistema de gestión integrado cambia eso: cada operación que ocurre en el negocio alimenta automáticamente los reportes. Vendiste algo: se registra en ventas, se descuenta del inventario, se asocia al cliente, se suma al flujo de caja. Al final del día, del mes o del trimestre, los reportes ya están, sin que nadie tenga que construirlos.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Reportes que ayudan a vender mejor</h2>
+        <p>
+          Los datos no solo sirven para ver qué pasó, sino para anticipar qué puede pasar. Con patrones históricos, podés identificar estacionalidades: ¿en qué meses vendés más? ¿Cuándo se concentra la demanda? Esa información te permite prepararte: stockearte a tiempo, reforzar el equipo en fechas pico, lanzar promociones en los períodos de menor movimiento.
+        </p>
+        <p>
+          También podés identificar qué clientes tienen mayor valor para el negocio: los que compran seguido, los que tienen mayor ticket, los que refieren a otros. Con esa segmentación podés diseñar acciones específicas sin grandes inversiones.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">El reporte financiero: saber realmente si el negocio es rentable</h2>
+        <p>
+          Uno de los errores más comunes en PyMEs es confundir tener caja con ser rentable. Un negocio puede tener ingresos altos y, al mismo tiempo, estar perdiendo dinero si los costos crecen más rápido. Sin un reporte financiero claro, ese problema puede pasar desapercibido durante meses.
+        </p>
+        <p>
+          Un reporte básico de ingresos y egresos, generado automáticamente por el sistema, permite ver en tiempo real cuánto entró y cuánto salió, qué costos crecieron más de lo esperado, qué margen queda después de gastos, y si hay tensiones de liquidez en el horizonte.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Empezar pequeño: tres reportes para implementar primero</h2>
+        <p>
+          Si hoy no tenés ningún reporte formal en tu negocio, no hace falta implementar todo a la vez. Estos tres son un buen punto de partida:
+        </p>
+        <ol>
+          <li><strong>Reporte de ventas semanal.</strong> Total vendido, comparación con la semana anterior y listado de los productos o servicios más vendidos. Te toma cinco minutos leerlo y te da una foto clara de cómo va el negocio.</li>
+          <li><strong>Reporte de morosidad.</strong> Listado de clientes con pagos pendientes, ordenado por antigüedad de la deuda. Te permite actuar rápido antes de que las moras se vuelvan incobrables.</li>
+          <li><strong>Reporte de stock mínimo.</strong> Productos que están por debajo del umbral definido y necesitan reposición. Evita quiebres de stock sin tener que revisar el inventario manualmente.</li>
+        </ol>
+      </article>
+
+      <article>
+        <h2 class="h4 mb-3">La información es ventaja competitiva</h2>
+        <p>
+          Las grandes empresas invierten millones en analítica de datos porque saben que la información oportuna vale. Las PyMEs no necesitan ese nivel de sofisticación, pero sí necesitan acceso a sus propios datos, de forma simple y en tiempo real.
+        </p>
+        <p>
+          Cuando sabés qué está pasando en tu negocio, podés tomar decisiones más rápido, con más confianza y con menos margen de error. Si hoy no tenés visibilidad sobre los números de tu negocio, el primer paso es ordenar los datos. A partir de ahí, los reportes se construyen solos.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Querés tener reportes automáticos de tu negocio?</h3>
+      <p>En Imperial Net desarrollamos sistemas que te dan visibilidad real sobre tu PyME. Contanos tu caso y te asesoramos sin compromiso.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
+</Layout>

@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import "../../../public/css/blog-article.css";
+
+export const frontmatter = {
+  title: "Inventario sin caos: cómo evitar quiebres de stock y sobrestock en tu PyME",
+  description: "Quiebres de stock y sobrestock le cuestan caro a tu PyME. Descubrí cómo digitalizar tu inventario para tener control total, evitar pérdidas y vender más.",
+  date: "2026-01-14"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/gestion-inventario-pymes",
+  "mainEntityOfPage": "https://imperial-net.com/blog/gestion-inventario-pymes"
+};
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
+    <div class="container">
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-box-seam"></i> Inventario
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 14 de enero de 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
+
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
+
+      <div class="mb-5">
+        <h2 class="h4 mb-3">¿Por qué el inventario es el talón de Aquiles de muchas PyMEs?</h2>
+        <p>
+          Una de las situaciones más frustrantes en un negocio es decirle a un cliente «no tenemos ese producto» cuando en realidad sí está en el depósito, o descubrir que pediste demasiado de algo que no se vende. El inventario mal gestionado genera pérdidas silenciosas que se acumulan mes a mes.
+        </p>
+        <p>
+          El problema no suele ser falta de cuidado, sino falta de herramientas. Cuando el control del stock se hace en planillas de Excel o, peor, de forma mental, los errores son inevitables: ingresos que no se registran, salidas que quedan sin anotar, discrepancias entre lo que dice el sistema y lo que hay físicamente.
+        </p>
+        <p>
+          La buena noticia es que hoy existen soluciones accesibles para PyMEs que permiten llevar el inventario en tiempo real, con alertas automáticas y reportes claros, sin necesitar un equipo de sistemas.
+        </p>
+      </div>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Los dos grandes enemigos: el quiebre y el sobrestock</h2>
+        <p>
+          El <strong>quiebre de stock</strong> ocurre cuando te quedás sin un producto que el cliente quiere. Consecuencias: venta perdida, cliente que se va a la competencia y, si pasa seguido, reputación dañada. En muchos rubros, el cliente que no encuentra lo que busca no vuelve.
+        </p>
+        <p>
+          El <strong>sobrestock</strong>, en cambio, es el exceso: compraste más de lo que podés vender. Eso inmoviliza capital, ocupa espacio físico, y puede derivar en productos vencidos o desactualizados que terminan tirándose o vendiéndose con pérdida.
+        </p>
+        <p>
+          Ambos problemas son costosos. Y en la mayoría de los casos, se pueden evitar con un sistema que te avise a tiempo: cuando un producto está por agotarse, cuando el stock supera cierto umbral o cuando un artículo no tuvo movimiento en semanas.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Qué cambia cuando gestionás el inventario digitalmente</h2>
+        <p>
+          Un sistema de gestión de inventario digitalizado conecta cada venta, cada ingreso de mercadería y cada devolución con el stock en tiempo real. Esto tiene impactos concretos:
+        </p>
+        <ul>
+          <li>Sabés exactamente cuántas unidades de cada producto tenés, sin ir a contar físicamente.</li>
+          <li>Podés definir un stock mínimo para cada ítem: cuando llega a ese umbral, el sistema te avisa que es momento de reponer.</li>
+          <li>Identificás fácilmente qué productos se venden más y en qué períodos, lo que mejora tus compras.</li>
+          <li>Reducís el tiempo dedicado a inventarios físicos periódicos, ya que el sistema ya lleva la cuenta.</li>
+          <li>Evitás cobrar por productos que no existen o despachar mercadería sin registrar la salida.</li>
+        </ul>
+        <p>
+          Todo esto mejora no solo la operación interna, sino también la experiencia del cliente: promesas que se cumplen, entregas que llegan a tiempo, y menos «lo miramos y te avisamos».
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Integrar el inventario con ventas y facturación</h2>
+        <p>
+          El gran salto de calidad ocurre cuando el inventario no funciona como un módulo aislado, sino conectado con el resto del negocio. Cuando registrás una venta, el stock se descuenta automáticamente. Cuando emitís una factura, queda el rastro de qué salió y cuándo.
+        </p>
+        <p>
+          Esta integración elimina duplicación de trabajo: no hace falta actualizar el inventario por separado después de cada venta. Y reduce errores: no depende de que alguien recuerde hacerlo. Además, abre la posibilidad de cruzar datos: ¿qué productos generan mayor margen? ¿Cuáles se venden más los fines de semana? ¿Cuál es el proveedor que más demora en entregar?
+        </p>
+        <p>
+          Con esa información, podés comprar mejor, negociar con más argumentos y planificar con anticipación en lugar de reaccionar.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">El inventario físico no desaparece, se simplifica</h2>
+        <p>
+          Muchos negocios hacen inventarios físicos periódicos para verificar que lo que dice el sistema coincide con lo que hay en el depósito. Con un buen sistema digital, esta tarea no desaparece, pero se vuelve mucho más rápida y fácil.
+        </p>
+        <p>
+          En lugar de contar todo desde cero, podés enfocarte en los productos con mayor movimiento o mayor valor, y verificar que los números cierren. Si hay discrepancias, el sistema te ayuda a identificar dónde puede estar el error. El resultado: menos horas de inventario, más confianza en los datos.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Por dónde empezar si hoy llevás todo en planillas</h2>
+        <p>
+          Si tu punto de partida es una planilla de Excel o directamente sin sistema, el proceso de transición puede parecer intimidante. Pero no tiene que serlo:
+        </p>
+        <ol>
+          <li><strong>Hacé un inventario inicial.</strong> Antes de migrar a cualquier sistema, necesitás saber con qué contás: listado de productos, cantidades actuales, precios de costo.</li>
+          <li><strong>Elegí un sistema que se adapte a tu rubro.</strong> No todos los sistemas de inventario son iguales: los hay para comercios, para servicios, para gastronomía, etc.</li>
+          <li><strong>Cargá los datos con cuidado.</strong> La calidad del sistema depende de la calidad de los datos que entrás. Vale la pena tomarse el tiempo para hacerlo bien desde el principio.</li>
+          <li><strong>Configurá alertas mínimas.</strong> Definí el stock mínimo de cada producto desde el arranque: es lo que va a disparar las alertas de reposición.</li>
+          <li><strong>Empezá a usarlo en el día a día.</strong> La clave es que cada movimiento quede registrado desde el primer día.</li>
+        </ol>
+      </article>
+
+      <article>
+        <h2 class="h4 mb-3">Un inventario bien llevado es una ventaja competitiva</h2>
+        <p>
+          En un mercado donde el cliente tiene muchas opciones, la confiabilidad hace la diferencia. Saber que lo que ofrecés está disponible, que los plazos se cumplen y que no hay sorpresas desagradables genera confianza y fidelización.
+        </p>
+        <p>
+          Al mismo tiempo, internamente, un inventario bien gestionado te da tranquilidad: menos tiempo apagando incendios, más tiempo pensando en cómo hacer crecer el negocio. Y cuando llegue el momento de escalar, de sumar locales o de ampliar el catálogo, ya tenés la base para hacerlo sin que todo explote.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Querés digitalizar tu inventario?</h3>
+      <p>En Imperial Net desarrollamos sistemas de gestión integrados para PyMEs. Contanos tu caso y te asesoramos sin compromiso.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
+</Layout>

@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import "../../../public/css/blog-article.css";
+
+export const frontmatter = {
+  title: "Atención al cliente digital: respondé más rápido y perdé menos ventas",
+  description: "Respondé más rápido y perdé menos ventas. Descubrí cómo mejorar la atención al cliente en tu PyME usando herramientas digitales sin contratar más personal.",
+  date: "2026-02-05"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/atencion-cliente-digital-pymes",
+  "mainEntityOfPage": "https://imperial-net.com/blog/atencion-cliente-digital-pymes"
+};
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
+    <div class="container">
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-headset"></i> Atención al cliente
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 5 de febrero de 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
+
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
+
+      <div class="mb-5">
+        <h2 class="h4 mb-3">La velocidad de respuesta ya es parte del producto</h2>
+        <p>
+          Hace algunos años, el cliente que enviaba una consulta aceptaba esperar uno o dos días. Hoy, si no recibe respuesta en pocas horas, ya está buscando otra opción. La expectativa cambió, y las PyMEs que no se adaptan pierden ventas sin darse cuenta.
+        </p>
+        <p>
+          Esto no significa que tengas que estar disponible las 24 horas. Significa que podés implementar herramientas que gestionen la primera respuesta, clasifiquen las consultas, respondan preguntas frecuentes y dejen al cliente con la sensación de que fue atendido, aunque el equipo humano entre en acción después.
+        </p>
+      </div>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Qué pierde una PyME por responder tarde</h2>
+        <p>
+          Cada consulta que llega es una oportunidad de venta. Cuando esa consulta no recibe respuesta a tiempo, las consecuencias son concretas:
+        </p>
+        <ul>
+          <li>El cliente compra en otro lado. En muchos casos, ya no vuelve.</li>
+          <li>Se pierde el contexto: si el seguimiento llega al día siguiente, el cliente puede estar en otro momento de decisión.</li>
+          <li>La reputación se daña: un cliente que espera mucho puede compartir su mala experiencia en redes sociales o Google.</li>
+          <li>El equipo se sobrecarga cuando se acumulan consultas sin responder, lo que genera más demoras y más errores.</li>
+        </ul>
+        <p>
+          Paradójicamente, muchos de estos problemas no se deben a que el equipo no quiera atender bien, sino a que no tiene las herramientas para hacerlo de forma eficiente.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Respuestas automáticas para las consultas más frecuentes</h2>
+        <p>
+          En la mayoría de los negocios, el 70% de las consultas se repiten: horarios, precios, disponibilidad, formas de pago, ubicación, cómo hacer un pedido. Si tu equipo responde esas preguntas manualmente una por una, todos los días, está invirtiendo tiempo en algo que podría automatizarse.
+        </p>
+        <p>
+          Una base de respuestas automáticas bien configurada puede resolver esas consultas en segundos, sin intervención humana. Y cuando la pregunta es más específica o requiere análisis, ahí sí entra el equipo, pero con el contexto ya capturado y sin haber tenido que repetir lo mismo veinte veces.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Centralizar los canales: el gran alivio para el equipo</h2>
+        <p>
+          Muchas PyMEs reciben consultas por múltiples canales: WhatsApp, Instagram, correo electrónico, el formulario del sitio web, Facebook. Y cada uno es una pantalla diferente que alguien tiene que revisar. El resultado: consultas que se pierden, respuestas tardías y un equipo que salta entre aplicaciones todo el día.
+        </p>
+        <p>
+          Centralizar todos esos canales en una sola bandeja de entrada cambia completamente la dinámica. Tu equipo ve todo en un solo lugar, puede priorizar, asignar y responder sin saltar entre aplicaciones. Nada se pierde, nada queda sin respuesta por accidente.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">El historial del cliente: atender con contexto</h2>
+        <p>
+          Cuando un cliente contacta a tu negocio por segunda vez, nada genera más frustración que tener que explicar todo desde cero. Con un sistema de gestión de clientes (CRM), cada interacción queda registrada: qué consultó, qué compró, qué problema reportó, qué acordaron.
+        </p>
+        <p>
+          Cuando ese cliente vuelve, la persona que lo atiende ya tiene el historial y puede retomar desde donde quedaron. El cliente siente que es recordado, que importa, que el negocio lo conoce. Y eso fideliza.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Seguimiento postventa: el paso que más se omite</h2>
+        <p>
+          La relación con el cliente no termina cuando se cierra la venta. El seguimiento postventa es lo que convierte una compra puntual en un cliente recurrente. Sin embargo, es justamente lo que más se deja de lado cuando el equipo está ocupado con nuevas consultas.
+        </p>
+        <p>
+          Automatizar el seguimiento permite que, por ejemplo, algunos días después de una compra, el cliente reciba un mensaje preguntando si está satisfecho, ofreciendo ayuda o compartiendo información relevante. Este tipo de flujos se pueden configurar una vez y funcionar solos.
+        </p>
+      </article>
+
+      <article>
+        <h2 class="h4 mb-3">Mejor atención, mismo equipo</h2>
+        <p>
+          La propuesta no es reemplazar la atención humana —que sigue siendo insustituible para construir confianza— sino darle al equipo las herramientas para que pueda atender más personas, con más contexto, en menos tiempo.
+        </p>
+        <p>
+          Una PyME con un sistema de atención bien configurado puede competir en experiencia con empresas mucho más grandes. Los clientes lo notan: respuestas rápidas, coherentes, con memoria y seguimiento. Eso genera confianza, y la confianza genera fidelidad.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Querés mejorar la atención al cliente en tu negocio?</h3>
+      <p>En Imperial Net integramos herramientas digitales que te permiten atender mejor sin ampliar el equipo. Contanos tu caso.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
+</Layout>

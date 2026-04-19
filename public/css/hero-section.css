@@ -2,6 +2,13 @@
    HERO SECTION
    =================================== */
 
+@media (max-width: 575.98px) {
+  .hero-section {
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+}
+
 /* hero section */
 #empezar {
   scroll-margin-top: 100px;
@@ -28,8 +35,7 @@
   height: auto;
   z-index: 1;
   transform: translate(-50%, -50%);
-  opacity: 0.3;
-  filter: brightness(0.4) contrast(1.2);
+  opacity: 0.35;
   object-fit: cover;
 }
 
@@ -61,7 +67,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, rgba(0, 170, 255, 0.2), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 170, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1.2rem;
@@ -117,7 +127,7 @@
 }
 
 .highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -157,13 +167,18 @@
 }
 
 .btn-primary-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.6s ease;
 }
 
@@ -238,10 +253,14 @@
 
 .floating-element {
   position: absolute;
-  background: linear-gradient(135deg, rgba(0, 170, 255, 0.1), rgba(0, 204, 255, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 170, 255, 0.1),
+    rgba(0, 204, 255, 0.05)
+  );
   border-radius: 50%;
-  backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 170, 255, 0.2);
+  will-change: transform;
 }
 
 .element-1 {
@@ -291,33 +310,69 @@
 
 /* ANIMACIONES */
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes pulse-badge {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.4); }
-  50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 170, 255, 0); }
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(0, 170, 255, 0);
+  }
 }
 
 @keyframes float-1 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-20px) rotate(5deg); }
-  66% { transform: translateY(10px) rotate(-3deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-3deg);
+  }
 }
 
 @keyframes float-2 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-30px) rotate(10deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
 }
 
 @keyframes float-3 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-15px) rotate(-5deg); }
-  75% { transform: translateY(20px) rotate(8deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(8deg);
+  }
 }
 
 @keyframes bounce-scroll {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
 }

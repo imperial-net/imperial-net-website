@@ -7,7 +7,7 @@ const blogPosts = [
   {
     url: "/blog/por-que-digitalizar-tu-empresa",
     frontmatter: {
-      title: "👉 Por qué digitalizar tu empresa es una inversión rentable",
+      title: "Por qué digitalizar tu empresa es una inversión rentable",
       description: "Descubrí cómo simplificar tareas y ahorrar dinero al llevar tus procesos a la pantalla.",
       date: "2025-08-02"
     }
@@ -15,7 +15,7 @@ const blogPosts = [
   {
     url: "/blog/automatizacion-para-pymes",
     frontmatter: {
-      title: "👉 Automatización para PyMEs: cómo reducir costos y errores",
+      title: "Automatización para PyMEs: cómo reducir costos y errores",
       description: "La automatización te ayuda a ahorrar tiempo, reducir errores y crecer sin complicaciones. Descubrí ejemplos simples que podés aplicar hoy en tu negocio.",
       date: "2025-08-01"
     }
@@ -23,9 +23,33 @@ const blogPosts = [
   {
     url: "/blog/como-elegir-un-software-a-medida",
     frontmatter: {
-      title: "👉 Elegir software a medida: la clave para que tu negocio no se complique",
+      title: "Elegir software a medida: la clave para que tu negocio no se complique",
       description: "Conocé qué factores tenés que considerar al desarrollar o contratar un sistema hecho para tu negocio.",
       date: "2025-07-30"
+    }
+  },
+  {
+    url: "/blog/gestion-inventario-pymes",
+    frontmatter: {
+      title: "Inventario sin caos: cómo evitar quiebres de stock y sobrestock en tu PyME",
+      description: "Un mal manejo del inventario cuesta plata: productos vencidos, ventas perdidas, capital inmovilizado. Descubrí cómo digitalizarlo y ganar control real sobre tu stock.",
+      date: "2026-01-14"
+    }
+  },
+  {
+    url: "/blog/atencion-cliente-digital-pymes",
+    frontmatter: {
+      title: "Atención al cliente digital: respondé más rápido y perdé menos ventas",
+      description: "El cliente que no recibe respuesta rápida se va a la competencia. Descubrí cómo las PyMEs pueden mejorar su atención sin contratar más personal.",
+      date: "2026-02-05"
+    }
+  },
+  {
+    url: "/blog/reportes-metricas-pymes",
+    frontmatter: {
+      title: "Datos que importan: cómo tomar mejores decisiones en tu PyME con reportes simples",
+      description: "No necesitás ser analista de datos para usar información real en tu negocio. Descubrí qué métricas mirar y cómo un buen sistema te las muestra automáticamente.",
+      date: "2026-03-18"
     }
   }
 ];
@@ -33,25 +57,25 @@ const blogPosts = [
 
 <Layout
   title="Blog | Imperial Net"
-  description="Consejos simples sobre digitalización y software para PyMEs"
+  description="Blog de Imperial Net: artículos prácticos sobre digitalización, automatización y software a medida para PyMEs de Trenque Lauquen y la región."
 >
   <!-- Hero del Blog -->
   <section class="py-5 bg-gradient text-white">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-8 mx-auto text-center">
-          <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
-            📚 Nuestro Blog
+        <div class="col-lg-8 mx-auto text-center" data-reveal-stagger>
+          <h1 class="display-4 fw-bold mb-4">
+            Nuestro Blog
           </h1>
-          <p class="lead mb-4" data-aos="fade-up" data-aos-delay="150">
+          <p class="lead mb-4">
             Contenido valioso para hacer crecer tu negocio con tecnología. 
             Aprende sobre digitalización, automatización y desarrollo de software.
           </p>
-          <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="300">
-            <span class="badge bg-primary fs-6 px-3 py-2">💼 PyMEs</span>
-            <span class="badge bg-success fs-6 px-3 py-2">🤖 Automatización</span>
-            <span class="badge bg-info fs-6 px-3 py-2">💻 Software</span>
-            <span class="badge bg-warning fs-6 px-3 py-2">📈 Crecimiento</span>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-primary fs-6 px-3 py-2"><i class="bi bi-building"></i> PyMEs</span>
+            <span class="badge bg-success fs-6 px-3 py-2"><i class="bi bi-cpu"></i> Automatización</span>
+            <span class="badge bg-info fs-6 px-3 py-2"><i class="bi bi-code-slash"></i> Software</span>
+            <span class="badge bg-warning fs-6 px-3 py-2"><i class="bi bi-graph-up-arrow"></i> Crecimiento</span>
           </div>
         </div>
       </div>
@@ -61,20 +85,16 @@ const blogPosts = [
   <!-- Artículos del Blog -->
   <section class="py-5 text-white">
     <div class="container">
-      <div class="row g-4">
-        {blogPosts.map((post, index) => (
-          <div 
-            class="col-md-6 col-lg-4" 
-            data-aos="fade-up" 
-            data-aos-delay={index * 150}
-          >
+      <div class="row g-4" data-reveal-stagger>
+        {blogPosts.map((post) => (
+          <div class="col-md-6 col-lg-4">
             <BlogCard post={post} />
           </div>
         ))}
       </div>
       
       <!-- Mensaje si no hay más artículos -->
-      <div class="text-center mt-5" data-aos="fade-up">
+      <div class="text-center mt-5" data-reveal>
         <p class="lead text-light opacity-75 mb-4">
           ¿Te gustó nuestro contenido? ¡Seguí leyendo!
         </p>

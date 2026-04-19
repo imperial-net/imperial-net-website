@@ -1,36 +1,22 @@
 ---
-// src/components/WhatsAppButton.astro
-import { WHATSAPP_PHONE } from '../config';
-const link = `https://wa.me/${WHATSAPP_PHONE}`;
+import { WHATSAPP_PHONE } from "../config";
+import "../../public/css/whatsapp-button.css";
+const message = encodeURIComponent(
+  "Hola, quiero saber más sobre sus servicios 👋",
+);
+const link = `https://wa.me/${WHATSAPP_PHONE}?text=${message}`;
 ---
 
-<a href={link} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-  <i class="bi bi-whatsapp"></i>
-</a>
+<div class="wa-wrapper">
+  <span class="wa-tooltip">¿Hablamos?</span>
+  <a
+    href={link}
+    class="wa-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chatear por WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</div>
 
-<style>
- .whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  color: white;
-  font-size: 28px;
-  border-radius: 50%;
-  z-index: 9999;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  text-decoration: none;
-  color: white;
-}
-
-</style>

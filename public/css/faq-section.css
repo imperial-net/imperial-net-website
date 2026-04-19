@@ -1,0 +1,82 @@
+.modern-accordion .accordion-item {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px !important;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modern-accordion .accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.modern-accordion .accordion-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  border-radius: 12px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.modern-accordion .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2) 0%, rgba(40, 167, 69, 0.2) 100%);
+  color: white;
+  box-shadow: none;
+}
+
+.modern-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+  border: none;
+}
+
+.modern-accordion .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transition: transform 0.3s ease;
+}
+
+.modern-accordion .accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+}
+
+.modern-accordion .accordion-body {
+  padding: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.question-icon {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.faq-section .hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-section .hover-scale:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .modern-accordion .accordion-button {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .modern-accordion .accordion-body {
+    padding: 1rem;
+  }
+}

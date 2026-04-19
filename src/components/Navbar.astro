@@ -1,27 +1,27 @@
 ---
 import "../styles/global.css";
 import "../../public/css/navbar.css";
+const isHome = Astro.url.pathname === "/";
+const base = isHome ? "" : "/";
 ---
 
-<nav
-  class="navbar navbar-expand-lg navbar-dark fixed-top"
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-delay="100"
-  id="mainNavbar"
->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="/" aria-label="Imperial-Net - Inicio">
+    <a
+      class="navbar-brand d-flex align-items-center gap-2"
+      href="/"
+      aria-label="Imperial-Net - Inicio"
+    >
       <img
-        src="/img/logo.webp"
-        alt="Imperial Net - Soluciones de Software a Medida para PyMEs"
+        src="/img/logo-imperialnet.webp"
+        alt="Imperial Net - Software a medida para PyMEs"
         class="logo-icon"
         width="120"
         height="70"
         loading="eager"
       />
     </a>
-    
+
     <button
       class="navbar-toggler"
       type="button"
@@ -37,26 +37,38 @@ import "../../public/css/navbar.css";
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 mx-5">
         <li class="nav-item">
-          <a class="nav-link" href="#soluciones" data-section="soluciones">Soluciones</a>
+          <a
+            class="nav-link"
+            href={`${base}#soluciones`}
+            data-section="soluciones">Soluciones</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#nosotros" data-section="nosotros">Nosotros</a>
+          <a class="nav-link" href={`${base}#nosotros`} data-section="nosotros"
+            >Nosotros</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#casos" data-section="casos">Casos</a>
+          <a class="nav-link" href={`${base}#casos`} data-section="casos"
+            >Casos</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#blog" data-section="blog">Blog</a>
+          <a class="nav-link" href="/productos">Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contacto" data-section="contacto">Contacto</a>
+          <a class="nav-link" href={`${base}#blog`} data-section="blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={`${base}#contacto`} data-section="contacto"
+            >Contacto</a
+          >
         </li>
       </ul>
-      <a 
-        href="#contacto" 
+      <a
+        href={`${base}#contacto`}
         class="btn-empezar d-lg-inline-block ms-3"
-        data-section="contacto"
-        >Quiero digitalizar mi negocio</a
+        data-section="contacto">Quiero digitalizar mi negocio</a
       >
     </div>
   </div>
@@ -64,108 +76,128 @@ import "../../public/css/navbar.css";
 
 <script>
   // Funcionalidad mejorada del navbar
-  document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.getElementById('mainNavbar');
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .btn-empezar');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("mainNavbar");
+    const navLinks = document.querySelectorAll(
+      ".navbar-nav .nav-link, .btn-empezar",
+    );
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
     // Efecto de scroll - cambiar apariencia del navbar
     let scrolled = false;
-    
+
     function handleScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
       if (scrollTop > 50 && !scrolled) {
-        navbar?.classList.add('scrolled');
+        navbar?.classList.add("scrolled");
         scrolled = true;
       } else if (scrollTop <= 50 && scrolled) {
-        navbar?.classList.remove('scrolled');
+        navbar?.classList.remove("scrolled");
         scrolled = false;
       }
     }
-    
+
     // Optimizar scroll con throttling
     let ticking = false;
     function requestTick() {
       if (!ticking) {
         requestAnimationFrame(handleScroll);
         ticking = true;
-        setTimeout(() => { ticking = false; }, 16); // ~60fps
+        setTimeout(() => {
+          ticking = false;
+        }, 16); // ~60fps
       }
     }
-    
-    window.addEventListener('scroll', requestTick, { passive: true });
-    
-    // Navegación activa basada en scroll
-    function updateActiveNavigation() {
-      const sections = document.querySelectorAll('section[id], div[id]');
-      const scrollPos = window.scrollY + 100; // offset para el navbar
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          // Remover clase active de todos los links
-          navLinks.forEach(link => link.classList.remove('active'));
-          
-          // Agregar clase active al link correspondiente
-          const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
-          activeLink?.classList.add('active');
-        }
-      });
+
+    window.addEventListener("scroll", requestTick, { passive: true });
+
+    // Navegación activa basada en scroll - cache para evitar layout thrashing
+    let sectionData: { id: string; top: number; height: number }[] = [];
+
+    function buildSectionCache() {
+      const sections = document.querySelectorAll("section[id], div[id]");
+      sectionData = Array.from(sections).map((section) => ({
+        id: section.getAttribute("id") || "",
+        top: (section as HTMLElement).offsetTop,
+        height: (section as HTMLElement).offsetHeight,
+      }));
     }
-    
+
+    // Recalcular solo en resize, no en cada scroll
+    window.addEventListener("resize", buildSectionCache, { passive: true });
+    buildSectionCache();
+
+    function updateActiveNavigation() {
+      const scrollPos = window.scrollY + 100;
+      for (const sec of sectionData) {
+        if (scrollPos >= sec.top && scrollPos < sec.top + sec.height) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const activeLink = document.querySelector(
+            `[data-section="${sec.id}"]`,
+          );
+          activeLink?.classList.add("active");
+          break;
+        }
+      }
+    }
+
     // Cerrar navbar móvil al hacer clic en enlaces
-    navLinks.forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        const anchor = link as HTMLAnchorElement;
         // Cerrar navbar móvil si está abierto
-        if (navbarCollapse?.classList.contains('show')) {
-          const bootstrapCollapse = window.bootstrap?.Collapse;
+        if (navbarCollapse?.classList.contains("show")) {
+          const bootstrapCollapse = (window as any).bootstrap?.Collapse;
           if (bootstrapCollapse) {
-            const bsCollapse = new bootstrapCollapse(navbarCollapse, { toggle: false });
+            const bsCollapse = new bootstrapCollapse(navbarCollapse, {
+              toggle: false,
+            });
             bsCollapse.hide();
           }
         }
-        
+
         // Scroll suave mejorado
-        const targetId = this.getAttribute('href');
-        if (targetId?.startsWith('#')) {
+        const targetId = anchor.getAttribute("href");
+        if (targetId?.startsWith("#")) {
           e.preventDefault();
-          const targetElement = document.querySelector(targetId);
-          
+          const targetElement = document.querySelector(
+            targetId,
+          ) as HTMLElement | null;
+
           if (targetElement) {
             const navbarHeight = navbar?.offsetHeight || 80;
             const targetPosition = targetElement.offsetTop - navbarHeight;
-            
+
             window.scrollTo({
               top: targetPosition,
-              behavior: 'smooth'
+              behavior: "smooth",
             });
-            
+
             // Agregar clase active inmediatamente
-            navLinks.forEach(link => link.classList.remove('active'));
-            this.classList.add('active');
+            navLinks.forEach((l) => l.classList.remove("active"));
+            anchor.classList.add("active");
           }
         }
       });
     });
-    
+
     // Actualizar navegación activa en scroll
-    window.addEventListener('scroll', updateActiveNavigation, { passive: true });
-    
+    window.addEventListener("scroll", updateActiveNavigation, {
+      passive: true,
+    });
+
     // Preload de efectos hover (mejora performance)
-    navLinks.forEach(link => {
-      link.addEventListener('mouseenter', function() {
-        this.style.willChange = 'transform, color';
+    navLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        (link as HTMLElement).style.willChange = "transform, color";
       });
-      
-      link.addEventListener('mouseleave', function() {
-        this.style.willChange = 'auto';
+      link.addEventListener("mouseleave", () => {
+        (link as HTMLElement).style.willChange = "auto";
       });
     });
-    
+
     // Inicializar navegación activa
     updateActiveNavigation();
   });

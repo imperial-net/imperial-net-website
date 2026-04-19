@@ -1,11 +1,15 @@
-<section id="faq" class="py-5 text-white section-transition">
+---
+import "../../public/css/faq-section.css";
+---
+
+<section id="faq" class="py-5 text-white section-transition faq-section">
   <!-- Gradiente de transición superior -->
   <div class="gradient-fade-top"></div>
   
   <div class="container pt-5 pb-5">
     <!-- Header de la sección -->
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold mb-3">❓ Preguntas Frecuentes</h2>
+    <div class="text-center mb-5" data-reveal>
+      <h2 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> Preguntas Frecuentes</h2>
       <p class="lead mb-4">
         Resolvemos las dudas más comunes sobre nuestros servicios de desarrollo
       </p>
@@ -14,10 +18,10 @@
     <!-- Acordeón de preguntas -->
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <div class="accordion modern-accordion" id="faqAccordion">
+        <div class="accordion modern-accordion" id="faqAccordion" data-reveal-stagger>
           
           <!-- Pregunta 1 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q1">
               <button
                 class="accordion-button collapsed"
@@ -26,7 +30,7 @@
                 data-bs-target="#a1"
                 aria-expanded="false"
                 aria-controls="a1">
-                <span class="question-icon">🛠️</span>
+                <span class="question-icon"><i class="bi bi-tools"></i></span>
                 ¿Qué tipo de soluciones desarrollan?
               </button>
             </h2>
@@ -38,7 +42,7 @@
           </div>
 
           <!-- Pregunta 2 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q2">
               <button
                 class="accordion-button collapsed"
@@ -47,7 +51,7 @@
                 data-bs-target="#a2"
                 aria-expanded="false"
                 aria-controls="a2">
-                <span class="question-icon">🏢</span>
+                <span class="question-icon"><i class="bi bi-building"></i></span>
                 ¿Trabajan con todo tipo de empresas?
               </button>
             </h2>
@@ -59,7 +63,7 @@
           </div>
 
           <!-- Pregunta 3 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q3">
               <button
                 class="accordion-button collapsed"
@@ -68,7 +72,7 @@
                 data-bs-target="#a3"
                 aria-expanded="false"
                 aria-controls="a3">
-                <span class="question-icon">⚙️</span>
+                <span class="question-icon"><i class="bi bi-gear"></i></span>
                 ¿Qué tecnologías utilizan?
               </button>
             </h2>
@@ -80,7 +84,7 @@
           </div>
 
           <!-- Pregunta 4 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q4">
               <button
                 class="accordion-button collapsed"
@@ -89,7 +93,7 @@
                 data-bs-target="#a4"
                 aria-expanded="false"
                 aria-controls="a4">
-                <span class="question-icon">💰</span>
+                <span class="question-icon"><i class="bi bi-chat-dots"></i></span>
                 ¿Puedo pedir una demo o presupuesto sin compromiso?
               </button>
             </h2>
@@ -101,7 +105,7 @@
           </div>
 
           <!-- Pregunta 5 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q5">
               <button
                 class="accordion-button collapsed"
@@ -110,7 +114,7 @@
                 data-bs-target="#a5"
                 aria-expanded="false"
                 aria-controls="a5">
-                <span class="question-icon">🎨</span>
+                <span class="question-icon"><i class="bi bi-palette"></i></span>
                 ¿Ustedes también hacen diseño y frontend?
               </button>
             </h2>
@@ -122,7 +126,7 @@
           </div>
 
           <!-- Pregunta 6 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q6">
               <button
                 class="accordion-button collapsed"
@@ -131,7 +135,7 @@
                 data-bs-target="#a6"
                 aria-expanded="false"
                 aria-controls="a6">
-                <span class="question-icon">✨</span>
+                <span class="question-icon"><i class="bi bi-stars"></i></span>
                 ¿Qué ventajas tiene contratar software a medida?
               </button>
             </h2>
@@ -143,7 +147,7 @@
           </div>
 
           <!-- Pregunta 7 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q7">
               <button
                 class="accordion-button collapsed"
@@ -152,7 +156,7 @@
                 data-bs-target="#a7"
                 aria-expanded="false"
                 aria-controls="a7">
-                <span class="question-icon">🔗</span>
+                <span class="question-icon"><i class="bi bi-link-45deg"></i></span>
                 ¿Se puede integrar con otros sistemas?
               </button>
             </h2>
@@ -164,7 +168,7 @@
           </div>
 
           <!-- Pregunta 8 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="450">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q8">
               <button
                 class="accordion-button collapsed"
@@ -173,7 +177,7 @@
                 data-bs-target="#a8"
                 aria-expanded="false"
                 aria-controls="a8">
-                <span class="question-icon">☁️</span>
+                <span class="question-icon"><i class="bi bi-cloud"></i></span>
                 ¿Dónde se alojan los sistemas?
               </button>
             </h2>
@@ -185,7 +189,7 @@
           </div>
 
           <!-- Pregunta 9 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q9">
               <button
                 class="accordion-button collapsed"
@@ -194,7 +198,7 @@
                 data-bs-target="#a9"
                 aria-expanded="false"
                 aria-controls="a9">
-                <span class="question-icon">📋</span>
+                <span class="question-icon"><i class="bi bi-clipboard-check"></i></span>
                 ¿Cómo es el proceso de trabajo?
               </button>
             </h2>
@@ -206,7 +210,7 @@
           </div>
 
           <!-- Pregunta 10 -->
-          <div class="accordion-item" data-aos="fade-up" data-aos-delay="550">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="q10">
               <button
                 class="accordion-button collapsed"
@@ -215,7 +219,7 @@
                 data-bs-target="#a10"
                 aria-expanded="false"
                 aria-controls="a10">
-                <span class="question-icon">🔧</span>
+                <span class="question-icon"><i class="bi bi-wrench-adjustable"></i></span>
                 ¿Brindan mantenimiento o mejoras después del desarrollo?
               </button>
             </h2>
@@ -231,7 +235,7 @@
     </div>
 
     <!-- CTA al final -->
-    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
+    <div class="text-center mt-5" data-reveal>
       <p class="lead mb-4">¿Tenés otra pregunta?</p>
       <a 
         href="#contact" 
@@ -247,87 +251,3 @@
   <div class="gradient-fade-bottom"></div>
 </section>
 
-<style>
-  .modern-accordion .accordion-item {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px !important;
-    margin-bottom: 16px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-  }
-  
-  .modern-accordion .accordion-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .modern-accordion .accordion-button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 1.5rem;
-    border-radius: 12px !important;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-  }
-  
-  .modern-accordion .accordion-button:not(.collapsed) {
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.2) 0%, rgba(40, 167, 69, 0.2) 100%);
-    color: white;
-    box-shadow: none;
-  }
-  
-  .modern-accordion .accordion-button:focus {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
-    border: none;
-  }
-  
-  .modern-accordion .accordion-button::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    transition: transform 0.3s ease;
-  }
-  
-  .modern-accordion .accordion-button:not(.collapsed)::after {
-    transform: rotate(180deg);
-  }
-  
-  .modern-accordion .accordion-body {
-    padding: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    line-height: 1.6;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .question-icon {
-    font-size: 1.2rem;
-    min-width: 24px;
-    text-align: center;
-  }
-  
-  .hover-scale {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .hover-scale:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
-  }
-  
-  @media (max-width: 768px) {
-    .modern-accordion .accordion-button {
-      font-size: 1rem;
-      padding: 1rem;
-    }
-    
-    .modern-accordion .accordion-body {
-      padding: 1rem;
-    }
-  }
-</style>

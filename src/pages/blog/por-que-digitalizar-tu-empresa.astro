@@ -1,73 +1,112 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
-  title: "👉 Por qué digitalizar tu empresa es una inversión rentable",
-  description: "Descubrí cómo simplificar tareas y ahorrar dinero al llevar tus procesos a la pantalla.",
-  date: "2025-08-02"
+  title: "Por qué digitalizar tu empresa es una inversión rentable",
+  description: "Digitalizar tu PyME no es un gasto, es una inversión. Descubrí cómo simplificar tareas, reducir errores y ahorrar tiempo llevando tus procesos a la nube.",
+  date: "2025-07-15"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/por-que-digitalizar-tu-empresa",
+  "mainEntityOfPage": "https://imperial-net.com/blog/por-que-digitalizar-tu-empresa"
 };
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
-  <section class="py-5 text-white bg-dark">
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
     <div class="container">
-      <h1 class="mb-5 text-center">{frontmatter.title}</h1>
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-cloud-upload"></i> Digitalización
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 15 de julio de 2025</span>
+        <span><i class="bi bi-clock"></i> 4 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
 
-      <p class="lead mb-5 text-center" data-aos="fade-up">
-        Descubrí cómo simplificar tareas y ahorrar dinero al llevar tus procesos a la pantalla.
-      </p>
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
 
-      <article class="mb-5" data-aos="fade-up">
+      <div class="mb-5">
         <h2 class="h4 mb-3">La eficiencia empieza con un clic</h2>
         <p>
-          Digitalizar no es sólo usar la computadora. Se trata de organizar tus
-          procesos para que sean más rápidos y confiables. Imaginá un negocio
-          que lleva sus ventas en cuadernos. Cada día alguien debe revisar los
-          apuntes, sumar números y copiar datos. Un sistema digital registra todo
-          al instante y evita esa tarea repetitiva.
+          Digitalizar no es solo usar la computadora. Se trata de organizar tus procesos para que sean más rápidos y confiables. Imaginá un negocio que lleva sus ventas en cuadernos: cada día alguien debe revisar los apuntes, sumar números y copiar datos. Un sistema digital registra todo al instante y elimina esa tarea repetitiva.
         </p>
-      </article>
+        <p>
+          Lo que antes llevaba horas puede resolverse en minutos. Y lo más importante: con mucho menos margen de error. Cada proceso digitalizado es un proceso que ya no depende de la memoria ni de la buena letra de nadie.
+        </p>
+      </div>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="100">
+      <article class="mb-5">
         <h2 class="h4 mb-3">Ahorro de tiempo y costos</h2>
         <p>
-          Las tareas manuales consumen horas que podrías dedicar a tus clientes.
-          Si automatizás la emisión de facturas o el control de stock, reducís
-          errores y evitás gastos por productos perdidos o facturas mal emitidas.
-          El tiempo libre lo usás para mejorar el servicio o planear nuevas
-          ofertas.
+          Las tareas manuales consumen horas que podrías dedicar a tus clientes. Si automatizás la emisión de facturas o el control de stock, reducís errores y evitás gastos por productos perdidos o facturas mal emitidas.
+        </p>
+        <p>
+          El cálculo es simple: ¿cuántas horas por semana se destinan a tareas que un sistema podría hacer automáticamente? Ese tiempo recuperado tiene un valor concreto. Y los errores evitados, también: una factura mal emitida, un pedido perdido o un stock desactualizado tienen costos directos e indirectos que se acumulan.
         </p>
       </article>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="200">
+      <article class="mb-5">
         <h2 class="h4 mb-3">Datos en tiempo real para decidir mejor</h2>
         <p>
-          Con la información actualizada podés saber qué productos se venden más,
-          cuándo comprar insumos o qué servicios ofrecer. Ya no dependés de la
-          memoria o de revisar papeles. Las decisiones se toman con datos claros
-          y en el momento justo.
+          Con la información actualizada podés saber qué productos se venden más, cuándo comprar insumos o qué servicios ofrecer. Ya no dependés de la memoria o de revisar papeles. Las decisiones se toman con datos claros y en el momento justo.
+        </p>
+        <p>
+          La diferencia entre una PyME que gestiona con datos y una que lo hace a intuición no siempre se nota en los buenos momentos. Se nota cuando el contexto cambia, cuando hay que ajustar rápido, cuando el margen de error se achica. Ahí es donde tener la información correcta hace toda la diferencia.
         </p>
       </article>
 
-      <article class="mb-5" data-aos="fade-up" data-aos-delay="300">
+      <article class="mb-5">
         <h2 class="h4 mb-3">Imagen profesional frente al cliente</h2>
         <p>
-          Un sitio web donde tus clientes puedan consultar precios, hacer pedidos
-          o pedir soporte muestra seriedad. La digitalización transmite confianza
-          y te diferencia de quienes siguen con procesos desordenados.
+          Un sitio web donde tus clientes puedan consultar precios, hacer pedidos o pedir soporte muestra seriedad. La digitalización transmite confianza y te diferencia de quienes siguen con procesos desordenados.
+        </p>
+        <p>
+          Hoy los clientes esperan respuestas rápidas, información clara y procesos fluidos. Una PyME digitalizada puede ofrecer esa experiencia sin necesitar el presupuesto de una gran empresa. La tecnología nivela el campo de juego.
         </p>
       </article>
 
-      <article data-aos="fade-up" data-aos-delay="400">
+      <article>
         <h2 class="h4 mb-3">Empezá de a poco</h2>
         <p>
-          No hace falta digitalizar todo hoy. Elegí un proceso simple, como el
-          registro de ventas, y buscá una herramienta que se adapte a tu
-          realidad. Si querés que te orientemos sobre el paso siguiente,
-          contactanos. Estamos listos para ayudarte a que tu negocio crezca con
-          tecnología.
+          No hace falta digitalizar todo hoy. Elegí un proceso simple, como el registro de ventas o la gestión de turnos, y buscá una herramienta que se adapte a tu realidad. Una vez que ese primer paso funciona, el siguiente se vuelve más fácil.
+        </p>
+        <p>
+          La clave está en empezar: cada semana que pasa sin digitalizar es tiempo y recursos que se pierden innecesariamente. El mejor momento para dar el primer paso fue ayer. El segundo mejor momento es hoy.
         </p>
       </article>
+
     </div>
-  </section>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Listo para digitalizar tu negocio?</h3>
+      <p>En Imperial Net te ayudamos a dar el primer paso con soluciones concretas para tu PyME. Sin tecnicismos, sin vueltas.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
 </Layout>

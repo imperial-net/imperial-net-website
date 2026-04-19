@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
-const { title, description } = Astro.props;
+const { title, description, schema } = Astro.props;
 ---
 
 <html lang="es">
@@ -31,18 +31,18 @@ const { title, description } = Astro.props;
   <meta property="og:description" content="Transforma tu empresa con Imperial Net: desarrollo de software a medida, automatización, consultoría tecnológica y digitalización para PyMEs. ¡Potencia tu negocio hoy!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://imperial-net.com/" />
-  <meta property="og:image" content="https://imperial-net.com/img/logo.webp" />
-  <meta property="og:image:alt" content="Logo Imperial Net" />
-  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image" content="https://imperial-net.com/img/og-image.png" />
+  <meta property="og:image:alt" content="Imperial Net | Software a Medida para PyMEs" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Imperial Net" />
 
   <!-- Twitter Card (para Twitter/X) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Imperial Net | Soluciones Digitales y Software a Medida para PyMEs" />
   <meta name="twitter:description" content="Transforma tu empresa con Imperial Net: desarrollo de software a medida, automatización, consultoría tecnológica y digitalización para PyMEs. ¡Potencia tu negocio hoy!" />
-  <meta name="twitter:image" content="https://imperial-net.com/img/logo.webp" />
+  <meta name="twitter:image" content="https://imperial-net.com/img/og-image.png" />
   <meta name="twitter:image:alt" content="Logo Imperial Net" />
 
   <!-- Favicon -->
@@ -154,9 +154,11 @@ const { title, description } = Astro.props;
   }
   </script>
 
+  <!-- Schema dinámico por página (BlogPosting, etc.) -->
+  {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
   <!-- Preconnect a CDNs externos para mejorar performance -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
   <!-- Bootstrap Icons -->
   <link
@@ -164,29 +166,59 @@ const { title, description } = Astro.props;
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     media="print" onload="this.media='all'"
   />
+  <!-- font-display: swap para Bootstrap Icons -->
+  <style>
+    @font-face {
+      font-family: "bootstrap-icons";
+      font-display: swap;
+    }
+  </style>
 
-  <!-- Animaciones CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/@animxyz/core" media="print" onload="this.media='all'" />
-
-  <!-- AOS CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-    media="print" onload="this.media='all'"
-  />
 </head>
 
 
   <body>
     <Navbar />
 
-    <main style="margin-top: 80px;">
+    <main id="main-content">
       <slot />
-      <WhatsAppButton />
     </main>
 
-    <!-- Cargar AOS y luego inicializar -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer onload="AOS.init({ duration: 1000, once: false });"></script>
+    <WhatsAppButton />
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const revealNodes = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+        if (!revealNodes.length) return;
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const isSmallScreen = window.innerWidth < 768;
+        const lowCpu = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+        const lowMemory = typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+        const disableReveal = prefersReducedMotion || isSmallScreen || lowCpu || lowMemory;
+
+        if (disableReveal || !("IntersectionObserver" in window)) {
+          revealNodes.forEach((node) => node.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: "0px 0px -8% 0px",
+          }
+        );
+
+        revealNodes.forEach((node) => observer.observe(node));
+      });
+    </script>
 
     <!-- Bootstrap JS -->
     <script

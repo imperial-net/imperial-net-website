@@ -57,8 +57,8 @@
   position: absolute;
   background: linear-gradient(135deg, rgba(0, 170, 255, 0.08), rgba(0, 204, 255, 0.04));
   border-radius: 50%;
-  backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  will-change: transform;
 }
 
 .testimonials-element-1 {
