@@ -3,6 +3,9 @@ import "../../public/css/contact-section.css";
 ---
 
 <section id="contacto" class="contact-section section-transition">
+  <!-- Script de Cloudflare Turnstile (verificación anti-bot) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
   <!-- Gradiente de transición superior -->
   <div class="gradient-fade-top"></div>
   
@@ -75,6 +78,18 @@ import "../../public/css/contact-section.css";
             class="contact-form"
             novalidate
           >
+            <!-- 🪤 Honeypot anti-spam: invisible para humanos. Si un bot lo completa, el backend descarta el envío. NO borrar. -->
+            <div class="hp-field" aria-hidden="true" style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;">
+              <label for="website">No completar este campo</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
             <div class="form-grid">
               <div class="form-group">
                 <label for="name" class="form-label">
@@ -151,6 +166,11 @@ import "../../public/css/contact-section.css";
                 name="message"
                 rows="5"
                 placeholder="Describí brevemente qué necesitás, qué problemas querés resolver, o cualquier idea que tengas en mente..."></textarea>
+            </div>
+
+            <!-- Widget de verificación anti-bot (Cloudflare Turnstile) -->
+            <div class="d-flex justify-content-center my-4">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAADs5e0P4QMwzwjiE" data-theme="light"></div>
             </div>
 
             <div class="form-submit">
@@ -338,6 +358,22 @@ import "../../public/css/contact-section.css";
         return;
       }
 
+      // Verificar que Turnstile haya generado el ticket anti-bot
+      const turnstileToken = (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement)?.value || '';
+      if (!turnstileToken) {
+        formMessage.className = "form-message error";
+        formMessage.innerHTML = `
+          <div class="message-icon">
+            <i class="bi bi-shield-exclamation"></i>
+          </div>
+          <div class="message-content">
+            <h4>Verificación pendiente</h4>
+            <p>Esperá unos segundos a que cargue la verificación de seguridad y volvé a intentar.</p>
+          </div>
+        `;
+        return;
+      }
+
       // Cambiar estado del botón a cargando
       submitButton.disabled = true;
       btnText.style.display = 'none';
@@ -365,7 +401,8 @@ import "../../public/css/contact-section.css";
       const data = {
         name: nameInput.value.trim(),
         email: emailInput.value,
-        message: fullMessage
+        message: fullMessage,
+        "cf-turnstile-response": turnstileToken
       };
 
       try {
@@ -409,6 +446,8 @@ import "../../public/css/contact-section.css";
         submitButton.disabled = false;
         btnText.style.display = 'flex';
         btnLoading.style.display = 'none';
+        // Regenerar el ticket de Turnstile (es de un solo uso)
+        (window as any).turnstile?.reset();
       }
     });
   });

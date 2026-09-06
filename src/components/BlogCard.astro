@@ -8,23 +8,33 @@ const date = post.frontmatter.date
       day: 'numeric'
     })
   : null;
+const image = post.frontmatter.image;
 ---
 
 <a href={post.url} class="blog-card-link">
   <article class="blog-card">
-    <div class="blog-card-top">
-      <span class="blog-badge">
-        <i class="bi bi-file-text"></i> Artículo
-      </span>
-      {date && <span class="blog-date">{date}</span>}
+    <div class="blog-card-media">
+      {image
+        ? <img src={image} alt="" width="720" height="405" loading="lazy" decoding="async" />
+        : <div class="blog-card-media-fallback"><i class="bi bi-journal-text"></i></div>
+      }
     </div>
 
-    <h5 class="blog-title">{post.frontmatter.title}</h5>
+    <div class="blog-card-content">
+      <div class="blog-card-top">
+        <span class="blog-badge">
+          <i class="bi bi-file-text"></i> Artículo
+        </span>
+        {date && <span class="blog-date">{date}</span>}
+      </div>
 
-    <p class="blog-desc">{post.frontmatter.description}</p>
+      <h5 class="blog-title">{post.frontmatter.title}</h5>
 
-    <div class="blog-cta">
-      Leer artículo <i class="bi bi-arrow-right"></i>
+      <p class="blog-desc">{post.frontmatter.description}</p>
+
+      <div class="blog-cta">
+        Leer artículo <i class="bi bi-arrow-right"></i>
+      </div>
     </div>
   </article>
 </a>

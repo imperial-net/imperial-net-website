@@ -152,3 +152,31 @@
 .blog-back-link:hover {
   color: #00ccff;
 }
+
+/* Imágenes dentro del artículo */
+.blog-article-figure {
+  margin: 2.5rem 0;
+}
+
+.blog-article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 170, 255, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.blog-article-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+/* Imagen de apertura: va pegada al inicio del artículo */
+.blog-article-figure--cover {
+  margin-top: 0;
+  margin-bottom: 3rem;
+}

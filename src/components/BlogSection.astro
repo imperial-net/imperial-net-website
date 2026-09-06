@@ -3,21 +3,14 @@ import BlogCard from "./BlogCard.astro";
 import "../../public/css/blog-section.css";
 
 // Posts estáticos del blog por ahora
-const blogPosts = [
-  {
-    url: "/blog/gestion-inventario-pymes",
-    frontmatter: {
-      title: "Inventario sin caos: cómo evitar quiebres de stock y sobrestock en tu PyME",
-      description: "Un mal manejo del inventario cuesta plata: productos vencidos, ventas perdidas, capital inmovilizado. Descubrí cómo digitalizarlo y ganar control real sobre tu stock.",
-      date: "2026-01-14"
-    }
-  },
+const posts = [
   {
     url: "/blog/atencion-cliente-digital-pymes",
     frontmatter: {
       title: "Atención al cliente digital: respondé más rápido y perdé menos ventas",
       description: "El cliente que no recibe respuesta rápida se va a la competencia. Descubrí cómo las PyMEs pueden mejorar su atención sin contratar más personal.",
-      date: "2026-02-05"
+      date: "2026-02-05",
+      image: "/img/blog/thumbs/atencion-cliente-digital.webp"
     }
   },
   {
@@ -25,10 +18,25 @@ const blogPosts = [
     frontmatter: {
       title: "Datos que importan: cómo tomar mejores decisiones en tu PyME con reportes simples",
       description: "No necesitás ser analista de datos para usar información real en tu negocio. Descubrí qué métricas mirar y cómo un buen sistema te las muestra automáticamente.",
-      date: "2026-03-18"
+      date: "2026-03-18",
+      image: "/img/blog/thumbs/reportes-datos-que-importan.webp"
+    }
+  },
+  {
+    url: "/blog/costo-de-no-usar-tecnologia-pymes",
+    frontmatter: {
+      title: "Lo que te cuesta seguir con papel y Excel: el precio invisible de no usar tecnología",
+      description: "No usar tecnología también tiene un costo, solo que no aparece en ninguna factura. Descubrí dónde se te escapa la plata y por qué conviene ordenar tu negocio ahora.",
+      date: "2026-09-06",
+      image: "/img/blog/thumbs/costo-papel-excel.webp"
     }
   }
 ];
+
+// Del más nuevo al más viejo
+const blogPosts = [...posts].sort(
+  (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
 ---
 
 <section id="blog" class="py-5 text-white section-transition">

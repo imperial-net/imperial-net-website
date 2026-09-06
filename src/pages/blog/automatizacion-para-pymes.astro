@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
 import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
@@ -46,6 +47,19 @@ const schema = {
   <!-- Cuerpo del artículo -->
   <div class="container">
     <div class="blog-article-body" data-reveal-stagger>
+
+      <figure class="blog-article-figure blog-article-figure--cover">
+        <img
+          src="/img/blog/automatizacion-pymes.webp"
+          alt="Panel de automatizaciones de Imperial Net en una notebook, con reglas activas para generar facturas, actualizar stock, enviar confirmaciones al cliente y registrar pagos, junto al circuito de pedido, proceso automático, tarea completada y resultados"
+          width="1400"
+          height="933"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
         <div class="mb-5">
           <h2 class="h4 mb-3">¿Por qué la automatización es clave para las PyMEs?</h2>
           <p>
@@ -162,5 +176,8 @@ const schema = {
       </a>
     </div>
   </div>
+
+
+  <Footer />
 
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
 import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
@@ -46,6 +47,18 @@ const schema = {
   <!-- Cuerpo del artículo -->
   <div class="container">
     <div class="blog-article-body" data-reveal-stagger>
+
+      <figure class="blog-article-figure blog-article-figure--cover">
+        <img
+          src="/img/blog/reportes-datos-que-importan.webp"
+          alt="Panel de reportes de Imperial Net en una notebook, con resumen de ventas, compras, clientes y ganancia, gráficos de ventas por mes, productos más vendidos, evolución de gastos y alertas de stock bajo"
+          width="1400"
+          height="788"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
 
       <div class="mb-5">
         <h2 class="h4 mb-3">¿Estás tomando decisiones con datos o con intuición?</h2>
@@ -134,5 +147,8 @@ const schema = {
       </a>
     </div>
   </div>
+
+
+  <Footer />
 
 </Layout>

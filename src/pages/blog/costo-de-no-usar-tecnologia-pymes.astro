@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
+import "../../../public/css/blog-article.css";
+
+export const frontmatter = {
+  title: "Lo que te cuesta seguir con papel y Excel: el precio invisible de no usar tecnología",
+  description: "No usar tecnología también tiene un costo, solo que no aparece en ninguna factura. Descubrí dónde se te escapa la plata y por qué conviene ordenar tu negocio ahora.",
+  date: "2026-09-06"
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "author": { "@type": "Organization", "name": "Imperial Net", "url": "https://imperial-net.com" },
+  "publisher": { "@type": "Organization", "name": "Imperial Net", "logo": { "@type": "ImageObject", "url": "https://imperial-net.com/img/logo.webp" } },
+  "url": "https://imperial-net.com/blog/costo-de-no-usar-tecnologia-pymes",
+  "mainEntityOfPage": "https://imperial-net.com/blog/costo-de-no-usar-tecnologia-pymes"
+};
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} schema={schema}>
+
+  <!-- Hero del artículo -->
+  <div class="blog-article-hero">
+    <div class="container">
+      <a href="/blog" class="blog-back-link">
+        <i class="bi bi-arrow-left"></i> Volver al Blog
+      </a>
+      <div class="blog-article-badge">
+        <i class="bi bi-cash-coin"></i> Costos y productividad
+      </div>
+      <h1 class="blog-article-title">{frontmatter.title}</h1>
+      <div class="blog-article-meta">
+        <span><i class="bi bi-calendar3"></i> 6 de septiembre de 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min de lectura</span>
+        <span><i class="bi bi-building"></i> PyMEs</span>
+      </div>
+      <p class="blog-article-desc">{frontmatter.description}</p>
+    </div>
+  </div>
+
+  <!-- Cuerpo del artículo -->
+  <div class="container">
+    <div class="blog-article-body" data-reveal-stagger>
+
+      <figure class="blog-article-figure blog-article-figure--cover">
+        <img
+          src="/img/blog/costo-papel-excel.webp"
+          alt="Contraste entre un escritorio desordenado con biblioratos, papeles sueltos, notas adhesivas y una planilla de Excel con errores, y un escritorio ordenado con el panel de gestión de Imperial Net mostrando ventas, gastos y reportes"
+          width="1400"
+          height="788"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="mb-5">
+        <h2 class="h4 mb-3">La pregunta está mal formulada</h2>
+        <p>
+          Cuando un comerciante evalúa comprar un sistema, casi siempre se hace la misma pregunta: «¿cuánto me sale?». Es una pregunta razonable, pero incompleta. La pregunta que casi nadie se hace es la otra: «¿cuánto me está saliendo seguir como estoy?».
+        </p>
+        <p>
+          Y ahí está la trampa. El sistema tiene un precio visible, que aparece en un presupuesto y se siente en el bolsillo el día que se paga. El desorden, en cambio, no factura nada: se cobra en horas perdidas, en ventas que no se hicieron, en mercadería que se venció y en errores que nadie contabilizó. Es plata que se va todos los meses sin que aparezca en ningún lado.
+        </p>
+      </div>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Dónde se te escapa la plata sin que te des cuenta</h2>
+        <p>
+          Estos son los agujeros más comunes en un comercio que todavía trabaja con cuaderno, planilla suelta y memoria:
+        </p>
+        <ul>
+          <li><strong>El tiempo del cierre.</strong> Sumar el día a mano, cuadrar la caja, pasar los números a una planilla. Media hora diaria son diez horas al mes: una semana laboral por año dedicada a algo que un sistema hace solo.</li>
+          <li><strong>Las ventas que no pudiste hacer.</strong> El cliente pregunta si tenés un producto, nadie está seguro, hay que ir a buscarlo al depósito. A veces está y a veces se fue a comprarlo a otro lado.</li>
+          <li><strong>El capital dormido.</strong> Comprar de más «por las dudas» es plata inmovilizada en un estante. Comprar de menos es una góndola vacía. Sin datos, siempre se compra a ojo.</li>
+          <li><strong>Los errores de precio.</strong> Una lista desactualizada, un precio viejo en la etiqueta, un descuento mal aplicado. Cada uno es chico; sumados en un año, no lo son.</li>
+          <li><strong>Lo que se pierde y nadie nota.</strong> Faltantes, roturas, mercadería vencida. Sin registro no hay forma de detectarlos, y lo que no se detecta no se corrige.</li>
+          <li><strong>Lo que te deben.</strong> El fiado anotado en un papel que se traspapela. Cobranza que se atrasa porque nadie tiene claro quién debe qué.</li>
+        </ul>
+        <p>
+          Ninguno de estos costos aparece en el balance con nombre propio. Todos salen del mismo lugar: tu rentabilidad.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Hacé la cuenta con tus propios números</h2>
+        <p>
+          No hace falta creer en promedios de nadie. Tomá papel y respondé cuatro preguntas sobre tu negocio:
+        </p>
+        <ol>
+          <li><strong>¿Cuántas horas por semana dedicás vos o tu equipo a tareas administrativas manuales?</strong> Multiplicá esas horas por lo que vale una hora de trabajo en tu local.</li>
+          <li><strong>¿Cuántas veces por semana perdés una venta porque no sabías si tenías stock?</strong> Multiplicá por tu ticket promedio.</li>
+          <li><strong>¿Cuánta mercadería tiraste o rematiste el último año por vencimiento o por haber comprado de más?</strong></li>
+          <li><strong>¿Cuánto te deben hoy de fiado que no tenés registrado en ningún lado formal?</strong></li>
+        </ol>
+        <p>
+          Sumá los cuatro números y proyectalos a doce meses. En la mayoría de los comercios que conocemos, ese total supera varias veces el costo de ordenar el negocio de una vez. Y a diferencia del sistema, que se paga una sola vez, ese costo se repite todos los años.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">«Yo me manejo bien así»</h2>
+        <p>
+          Es la objeción más común, y suele ser cierta: mucha gente maneja su negocio de memoria y le funciona. El problema no es el presente, es el techo.
+        </p>
+        <p>
+          Un negocio que depende de la memoria de una persona no puede delegar, porque nadie más sabe cómo funciona. No puede crecer sin que el dueño trabaje más horas. No puede abrir un segundo punto de venta sin duplicar el caos. Y no puede tomarse vacaciones sin que algo se descontrole.
+        </p>
+        <p>
+          Ordenar la información no es solo ahorrar plata: es sacarte el negocio de la cabeza y ponerlo en un lugar donde otro lo pueda operar. Eso es lo que convierte un trabajo en una empresa.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Tecnología no significa complicarse</h2>
+        <p>
+          Buena parte de la resistencia viene de una imagen equivocada: pantallas llenas de opciones, capacitaciones eternas, un empleado que no se adapta y termina volviendo al cuaderno.
+        </p>
+        <p>
+          Un sistema bien pensado para un comercio hace lo contrario. Se aprende en una tarde, porque replica lo que la persona ya hace: pasar el producto, cobrar, entregar. La diferencia es que, mientras tanto, descuenta el stock, registra la venta y arma el reporte sin que nadie haga nada extra. Si una herramienta te obliga a trabajar más para usarla, esa herramienta está mal elegida.
+        </p>
+      </article>
+
+      <article class="mb-5">
+        <h2 class="h4 mb-3">Por dónde empezar sin dar un salto al vacío</h2>
+        <p>
+          No hace falta digitalizar todo de golpe. El orden que mejor funciona es este:
+        </p>
+        <ol>
+          <li><strong>Empezá por donde más te duele.</strong> Si el problema es el stock, arrancá por ahí. Si es la cobranza, empezá por los clientes. Un solo dolor resuelto genera confianza para el resto.</li>
+          <li><strong>Cargá bien los datos una vez.</strong> Es el único momento de esfuerzo real. Un sistema con datos mal cargados no sirve, y uno bien cargado se sostiene solo.</li>
+          <li><strong>Usalo dos semanas antes de juzgarlo.</strong> El cambio de hábito lleva algunos días. Después de eso, volver al cuaderno se siente incómodo.</li>
+          <li><strong>Recién ahí sumá lo que falte.</strong> Reportes, proveedores, múltiples usuarios. Cuando la base está firme, cada agregado es fácil.</li>
+        </ol>
+      </article>
+
+      <article>
+        <h2 class="h4 mb-3">El momento es siempre antes de lo que parece</h2>
+        <p>
+          La mayoría de los comercios se decide a ordenar el negocio después de un golpe: un faltante grande, un cliente perdido, un mes que cerró mal sin explicación. Es entendible, pero es caro: para cuando el problema se hizo visible, ya venía costando plata hace tiempo.
+        </p>
+        <p>
+          No usar tecnología no es la opción gratis. Es simplemente la opción cuyo costo no te llega en una factura. Y esa es exactamente la razón por la que cuesta tanto verla.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- CTA final -->
+    <div class="blog-article-cta">
+      <h3>¿Querés saber cuánto te está costando el desorden?</h3>
+      <p>En Imperial Net desarrollamos sistemas de gestión para comercios y PyMEs. Contanos cómo trabajás hoy y te decimos, sin vueltas, qué se puede ordenar y qué no.</p>
+      <a href="/#contacto" class="btn-cta">
+        <i class="bi bi-send"></i> Hablar con un especialista
+      </a>
+    </div>
+  </div>
+
+
+  <Footer />
+
+</Layout>

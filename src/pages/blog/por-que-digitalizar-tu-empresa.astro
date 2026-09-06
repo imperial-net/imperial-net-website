@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
 import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
@@ -46,6 +47,18 @@ const schema = {
   <!-- Cuerpo del artículo -->
   <div class="container">
     <div class="blog-article-body" data-reveal-stagger>
+
+      <figure class="blog-article-figure blog-article-figure--cover">
+        <img
+          src="/img/blog/digitalizar-antes-despues.webp"
+          alt="Comparación antes y después de digitalizar una empresa: a la izquierda, pilas de biblioratos de facturas, clientes, stock, gastos y planillas en papel; a la derecha, un panel de gestión de Imperial Net en una notebook con ventas, clientes, productos y reportes"
+          width="1400"
+          height="788"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
 
       <div class="mb-5">
         <h2 class="h4 mb-3">La eficiencia empieza con un clic</h2>
@@ -108,5 +121,8 @@ const schema = {
       </a>
     </div>
   </div>
+
+
+  <Footer />
 
 </Layout>

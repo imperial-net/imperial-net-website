@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
 import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
@@ -88,6 +89,20 @@ const schema = {
         <p>
           Todo esto mejora no solo la operación interna, sino también la experiencia del cliente: promesas que se cumplen, entregas que llegan a tiempo, y menos «lo miramos y te avisamos».
         </p>
+
+        <figure class="blog-article-figure">
+          <img
+            src="/img/blog/gestion-inventario-dashboard.webp"
+            alt="Comerciante consultando en una tablet el panel de control de su inventario, con alertas de stock bajo, stock normal y reposición pendiente, en el depósito de su negocio"
+            width="1400"
+            height="788"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            Con el stock digitalizado, cada producto tiene un estado visible en tiempo real: lo que está por faltar, lo que está en orden y lo que hay que reponer.
+          </figcaption>
+        </figure>
       </article>
 
       <article class="mb-5">
@@ -148,5 +163,8 @@ const schema = {
       </a>
     </div>
   </div>
+
+
+  <Footer />
 
 </Layout>

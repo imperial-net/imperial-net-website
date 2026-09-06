@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
 import "../../../public/css/blog-article.css";
 
 export const frontmatter = {
@@ -46,6 +47,19 @@ const schema = {
   <!-- Cuerpo del artículo -->
   <div class="container">
     <div class="blog-article-body" data-reveal-stagger>
+
+      <figure class="blog-article-figure blog-article-figure--cover">
+        <img
+          src="/img/blog/atencion-cliente-digital.webp"
+          alt="Comerciante respondiendo desde su notebook las consultas que llegan por WhatsApp, Instagram, Messenger y correo, centralizadas en el panel de conversaciones de Imperial Net"
+          width="1400"
+          height="788"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
 
       <div class="mb-5">
         <h2 class="h4 mb-3">La velocidad de respuesta ya es parte del producto</h2>
@@ -134,5 +148,8 @@ const schema = {
       </a>
     </div>
   </div>
+
+
+  <Footer />
 
 </Layout>
