@@ -193,35 +193,112 @@ section {
 [data-reveal-stagger].is-visible > *:nth-child(9) { transition-delay: 640ms; }
 [data-reveal-stagger].is-visible > *:nth-child(10) { transition-delay: 720ms; }
 
-/* Efecto de continuidad visual */
-.section-bridge {
-  position: relative;
-  height: 60px;
-  background: linear-gradient(180deg,
-    rgba(22, 33, 62, 0.8) 0%,
-    rgba(26, 26, 46, 0.6) 50%,
-    rgba(22, 33, 62, 0.8) 100%
-  );
-  overflow: hidden;
+/* ===================================
+   CONTROL DE ANIMACIONES DECORATIVAS
+   ===================================
+
+   Las animaciones en loop infinito (formas flotando, pulsos, barridos de
+   gradiente de fondo) se pausan mientras su sección está fuera de pantalla.
+   Sin esto, las ~25 animaciones decorativas del sitio se recalculan en cada
+   frame aunque estés 10.000px más abajo.
+
+   La clase .anim-idle la agrega y quita el observador de BaseLayout. La
+   lógica va en negativo a propósito: si el JS no corre o IntersectionObserver
+   no está disponible, nadie queda en idle y todo anima como antes, en vez de
+   quedar congelado. */
+
+section.anim-idle .clients-track,
+section.anim-idle .floating-element,
+section.anim-idle .scroll-indicator,
+section.anim-idle .shape-1,
+section.anim-idle .shape-2,
+section.anim-idle .shape-3,
+section.anim-idle .shape-1-modern,
+section.anim-idle .shape-2-modern,
+section.anim-idle .shape-3-modern,
+section.anim-idle .shape-4-modern,
+section.anim-idle .icon-pulse-modern,
+section.anim-idle .gradient-overlay-cases,
+section.anim-idle .element-1-cases,
+section.anim-idle .element-2-cases,
+section.anim-idle .element-3-cases,
+section.anim-idle .testimonials-gradient-overlay,
+section.anim-idle .testimonials-element-1,
+section.anim-idle .testimonials-element-2,
+section.anim-idle .testimonials-element-3 {
+  animation-play-state: paused;
 }
 
-.section-bridge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(0, 170, 255, 0.1) 50%,
-    transparent 100%
-  );
-  animation: bridge-sweep 4s ease-in-out infinite;
+/* ===================================
+   CONTENIDO PLEGADO ("Ver más")
+   ===================================
+
+   Las tarjetas y preguntas marcadas .is-extra siguen en el HTML (cuentan
+   para SEO y para lectores de pantalla); sólo se ocultan visualmente.
+
+   Igual que con las animaciones, el estado por defecto es "todo visible":
+   el JS agrega .is-collapsed al contenedor y recién ahí se esconden. Sin
+   JS se ve el contenido completo en vez de quedar contenido inalcanzable
+   detrás de un botón muerto. */
+
+.is-collapsed .is-extra {
+  display: none;
 }
 
+.reveal-more {
+  display: none;
+  margin-bottom: 3rem;
+}
 
-@keyframes bridge-sweep {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(50%); }
+.reveal-more.is-ready {
+  display: block;
+}
+
+.btn-reveal-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(0, 170, 255, 0.35);
+  border-radius: 50px;
+  background: rgba(0, 170, 255, 0.08);
+  color: #00ccff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-reveal-more:hover {
+  background: rgba(0, 170, 255, 0.16);
+  border-color: rgba(0, 170, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-reveal-more:focus-visible {
+  outline: 2px solid #00ccff;
+  outline-offset: 3px;
+}
+
+.btn-reveal-more i {
+  transition: transform 0.25s ease;
+}
+
+.btn-reveal-more[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+/* ===================================
+   PREFERENCIA DE MOVIMIENTO REDUCIDO
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,156 @@
+/* ===================================
+   CINTA DE CLIENTES
+   ===================================
+
+   Marquesina continua: la cinta tiene la lista dos veces y se desplaza
+   exactamente la mitad de su ancho, así el bucle no tiene salto.
+
+   La animación es un único transform sobre .clients-track (se compone en
+   GPU, no repinta) y se pausa cuando la sección sale de pantalla a través
+   de .anim-idle, igual que el resto de las animaciones del sitio. */
+
+.clients-section {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0 3.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.clients-title {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.clients-viewport {
+  overflow: hidden;
+  /* Los logos se desvanecen contra los bordes en vez de cortarse de golpe. */
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6rem,
+    #000 calc(100% - 6rem),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6rem,
+    #000 calc(100% - 6rem),
+    transparent 100%
+  );
+}
+
+.clients-track {
+  display: flex;
+  width: max-content;
+  animation: clients-marquee 45s linear infinite;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.clients-list {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0 2rem;
+  list-style: none;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  flex: 0 0 auto;
+}
+
+.client-item img {
+  width: auto;
+  height: auto;
+  max-width: 160px;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.88;
+  transition: opacity 0.25s ease;
+}
+
+.client-item img:hover {
+  opacity: 1;
+}
+
+@keyframes clients-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* La mitad del ancho total = exactamente una copia de la lista. */
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .clients-section {
+    padding: 2.5rem 0 2.75rem;
+  }
+
+  .clients-list {
+    gap: 2.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .client-item {
+    height: 48px;
+  }
+
+  .client-item img {
+    max-width: 120px;
+  }
+
+  .clients-viewport {
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+  }
+}
+
+/* En pantallas táctiles no hay hover: se muestran siempre al 100%. */
+@media (hover: none) {
+  .client-item img {
+    opacity: 1;
+  }
+}
+
+/* Con movimiento reducido la cinta se frena y pasa a poder desplazarse a
+   mano, en vez de quedar congelada mostrando sólo los primeros logos. */
+@media (prefers-reduced-motion: reduce) {
+  .clients-track {
+    animation: none;
+  }
+
+  .clients-viewport {
+    overflow-x: auto;
+  }
+
+  .clients-list:last-child {
+    display: none;
+  }
+}

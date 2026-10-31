@@ -1,5 +1,5 @@
 ---
-import "../../public/css/footer.css";
+import "../styles/footer.css";
 const isHome = Astro.url.pathname === "/";
 const base = isHome ? "" : "/";
 ---
@@ -13,7 +13,15 @@ const base = isHome ? "" : "/";
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="footer-brand">
             <h3 class="brand-title">
-              <i class="bi bi-code-square"></i>
+              <img
+                src="/img/logo-imperialnet.webp"
+                alt=""
+                class="brand-logo"
+                width="40"
+                height="44"
+                loading="lazy"
+                decoding="async"
+              />
               Imperial Net
             </h3>
             <p class="brand-description">
@@ -42,12 +50,9 @@ const base = isHome ? "" : "/";
           <div class="footer-section">
             <h4 class="section-title">Servicios</h4>
             <ul class="footer-links">
-              <li><a href={`${base}#soluciones`}>Desarrollo Web</a></li>
-              <li><a href={`${base}#soluciones`}>Sistemas ERP</a></li>
-              <li><a href={`${base}#soluciones`}>E-commerce</a></li>
-              <li><a href={`${base}#soluciones`}>Automatización</a></li>
-              <li><a href={`${base}#soluciones`}>Integraciones</a></li>
-              <li><a href={`${base}#soluciones`}>Consultoría IT</a></li>
+              <li><a href={`${base}#soluciones`}>Sistemas de gestión</a></li>
+              <li><a href="/productos">Productos listos para usar</a></li>
+              <li><a href={`${base}#soluciones`}>Sitios web</a></li>
             </ul>
           </div>
         </div>
@@ -57,13 +62,12 @@ const base = isHome ? "" : "/";
           <div class="footer-section">
             <h4 class="section-title">Empresa</h4>
             <ul class="footer-links">
-              <li><a href={`${base}#sobre-nosotros`}>Sobre nosotros</a></li>
-              <li><a href={`${base}#casos`}>Casos de éxito</a></li>
+              <li><a href={`${base}#nosotros`}>Sobre nosotros</a></li>
               <li><a href="/productos">Productos</a></li>
               <li><a href={`${base}#blog`}>Blog</a></li>
               <li><a href={`${base}#faq`}>FAQ</a></li>
               <li><a href={`${base}#contacto`}>Contacto</a></li>
-              <li><a href={`${base}#testimonios`}>Testimonios</a></li>
+              <li><a href={`${base}#testimonials`}>Testimonios</a></li>
             </ul>
           </div>
         </div>

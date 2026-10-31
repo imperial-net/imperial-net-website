@@ -1,5 +1,5 @@
 ---
-import "../../public/css/faq-section.css";
+import "../styles/faq-section.css";
 ---
 
 <section id="faq" class="py-5 text-white section-transition faq-section">
@@ -22,7 +22,7 @@ import "../../public/css/faq-section.css";
           
           <!-- Pregunta 1 -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="q1">
+            <h3 class="accordion-header" id="q1">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -33,7 +33,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-tools"></i></span>
                 ¿Qué tipo de soluciones desarrollan?
               </button>
-            </h2>
+            </h3>
             <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Desarrollamos sistemas web, aplicaciones administrativas, ERPs, plataformas de gestión y soluciones a medida según las necesidades de tu negocio.
@@ -43,7 +43,7 @@ import "../../public/css/faq-section.css";
 
           <!-- Pregunta 2 -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="q2">
+            <h3 class="accordion-header" id="q2">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -54,7 +54,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-building"></i></span>
                 ¿Trabajan con todo tipo de empresas?
               </button>
-            </h2>
+            </h3>
             <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Sí. Creamos soluciones para PyMEs, emprendimientos y organizaciones que buscan digitalizar sus procesos o mejorar su gestión interna.
@@ -64,7 +64,7 @@ import "../../public/css/faq-section.css";
 
           <!-- Pregunta 3 -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="q3">
+            <h3 class="accordion-header" id="q3">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -75,7 +75,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-gear"></i></span>
                 ¿Qué tecnologías utilizan?
               </button>
-            </h2>
+            </h3>
             <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Usamos principalmente Java + Spring Boot para el backend y React para el frontend, además de bases de datos MySQL y despliegues en VPS o nubes privadas.
@@ -85,7 +85,7 @@ import "../../public/css/faq-section.css";
 
           <!-- Pregunta 4 -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="q4">
+            <h3 class="accordion-header" id="q4">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -96,7 +96,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-chat-dots"></i></span>
                 ¿Puedo pedir una demo o presupuesto sin compromiso?
               </button>
-            </h2>
+            </h3>
             <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Claro. Evaluamos tu caso y te ofrecemos una propuesta personalizada sin costo inicial.
@@ -106,7 +106,7 @@ import "../../public/css/faq-section.css";
 
           <!-- Pregunta 5 -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="q5">
+            <h3 class="accordion-header" id="q5">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -117,7 +117,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-palette"></i></span>
                 ¿Ustedes también hacen diseño y frontend?
               </button>
-            </h2>
+            </h3>
             <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Sí, desarrollamos interfaces web modernas, responsivas y adaptadas a la identidad visual de tu negocio.
@@ -126,8 +126,8 @@ import "../../public/css/faq-section.css";
           </div>
 
           <!-- Pregunta 6 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="q6">
+          <div class="accordion-item is-extra">
+            <h3 class="accordion-header" id="q6">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -138,7 +138,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-stars"></i></span>
                 ¿Qué ventajas tiene contratar software a medida?
               </button>
-            </h2>
+            </h3>
             <div id="a6" class="accordion-collapse collapse" aria-labelledby="q6" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 El software a medida se adapta 100% a tus procesos, sin funciones innecesarias y con posibilidad de escalar a futuro según el crecimiento de tu empresa.
@@ -147,8 +147,8 @@ import "../../public/css/faq-section.css";
           </div>
 
           <!-- Pregunta 7 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="q7">
+          <div class="accordion-item is-extra">
+            <h3 class="accordion-header" id="q7">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -159,7 +159,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-link-45deg"></i></span>
                 ¿Se puede integrar con otros sistemas?
               </button>
-            </h2>
+            </h3>
             <div id="a7" class="accordion-collapse collapse" aria-labelledby="q7" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Sí. Podemos conectar tu sistema con plataformas externas como sistemas contables, pasarelas de pago, o APIs de terceros.
@@ -168,8 +168,8 @@ import "../../public/css/faq-section.css";
           </div>
 
           <!-- Pregunta 8 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="q8">
+          <div class="accordion-item is-extra">
+            <h3 class="accordion-header" id="q8">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -180,7 +180,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-cloud"></i></span>
                 ¿Dónde se alojan los sistemas?
               </button>
-            </h2>
+            </h3>
             <div id="a8" class="accordion-collapse collapse" aria-labelledby="q8" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Podemos desplegar la aplicación en tu propio servidor, en un VPS administrado por ImperialNet, o en tu servicio de hosting actual.
@@ -189,8 +189,8 @@ import "../../public/css/faq-section.css";
           </div>
 
           <!-- Pregunta 9 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="q9">
+          <div class="accordion-item is-extra">
+            <h3 class="accordion-header" id="q9">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -201,7 +201,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-clipboard-check"></i></span>
                 ¿Cómo es el proceso de trabajo?
               </button>
-            </h2>
+            </h3>
             <div id="a9" class="accordion-collapse collapse" aria-labelledby="q9" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Comenzamos con una reunión para entender tu necesidad, luego diseñamos la propuesta, desarrollamos por etapas (sprints) y entregamos resultados funcionales de forma continua.
@@ -210,8 +210,8 @@ import "../../public/css/faq-section.css";
           </div>
 
           <!-- Pregunta 10 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="q10">
+          <div class="accordion-item is-extra">
+            <h3 class="accordion-header" id="q10">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -222,7 +222,7 @@ import "../../public/css/faq-section.css";
                 <span class="question-icon"><i class="bi bi-wrench-adjustable"></i></span>
                 ¿Brindan mantenimiento o mejoras después del desarrollo?
               </button>
-            </h2>
+            </h3>
             <div id="a10" class="accordion-collapse collapse" aria-labelledby="q10" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 Sí, ofrecemos planes de soporte y mantenimiento para garantizar la estabilidad, seguridad y evolución del sistema.
@@ -234,11 +234,23 @@ import "../../public/css/faq-section.css";
       </div>
     </div>
 
+    <div class="reveal-more text-center">
+      <button
+        type="button"
+        class="btn-reveal-more"
+        data-reveal-more="faq"
+        aria-expanded="false"
+        aria-controls="faqAccordion">
+        <span class="reveal-more-label">Ver las 5 preguntas restantes</span>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+
     <!-- CTA al final -->
     <div class="text-center mt-5" data-reveal>
       <p class="lead mb-4">¿Tenés otra pregunta?</p>
       <a 
-        href="#contact" 
+        href="#contacto" 
         class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale"
       >
         Contactanos ahora
