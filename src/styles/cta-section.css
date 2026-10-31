@@ -1,6 +1,6 @@
 .cta-section {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f1f3c 100%);
-  padding: 100px 0;
+  padding: 72px 0;
   position: relative;
   overflow: hidden;
   color: white;
@@ -114,13 +114,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .cta-section .cta-subtitle {

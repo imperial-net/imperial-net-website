@@ -220,6 +220,52 @@ const { title, description, schema } = Astro.props;
       });
     </script>
 
+    <script is:inline>
+      // Pausa las animaciones decorativas de cada sección mientras está fuera
+      // de pantalla (ver "CONTROL DE ANIMACIONES DECORATIVAS" en base.css).
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("main section");
+        if (!sections.length || !("IntersectionObserver" in window)) return;
+
+        const animObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.target.classList.toggle("anim-idle", !entry.isIntersecting);
+            });
+          },
+          { rootMargin: "100px 0px" }
+        );
+
+        sections.forEach((section) => animObserver.observe(section));
+      });
+    </script>
+
+    <script is:inline>
+      // Pliega el contenido extra de Casos y FAQ (ver "CONTENIDO PLEGADO" en
+      // base.css). Colapsa recién acá, para que sin JS se vea todo.
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[data-reveal-more]").forEach((button) => {
+          const target = document.getElementById(
+            button.getAttribute("aria-controls")
+          );
+          if (!target) return;
+
+          const label = button.querySelector(".reveal-more-label");
+          const moreLabel = label.textContent;
+          const lessLabel = "Ver menos";
+
+          target.classList.add("is-collapsed");
+          button.parentElement.classList.add("is-ready");
+
+          button.addEventListener("click", () => {
+            const collapsed = target.classList.toggle("is-collapsed");
+            button.setAttribute("aria-expanded", String(!collapsed));
+            label.textContent = collapsed ? moreLabel : lessLabel;
+          });
+        });
+      });
+    </script>
+
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

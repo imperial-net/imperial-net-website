@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import "../../public/css/navbar.css";
+import "../styles/navbar.css";
 const isHome = Astro.url.pathname === "/";
 const base = isHome ? "" : "/";
 ---
@@ -46,11 +46,6 @@ const base = isHome ? "" : "/";
         <li class="nav-item">
           <a class="nav-link" href={`${base}#nosotros`} data-section="nosotros"
             >Nosotros</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href={`${base}#casos`} data-section="casos"
-            >Casos</a
           >
         </li>
         <li class="nav-item">

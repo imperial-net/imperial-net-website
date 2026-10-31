@@ -1,13 +1,10 @@
 ---
-import "../../public/css/hero-section.css";
+import "../styles/hero-section.css";
 ---
 
 <section id="hero" class="hero-section d-flex align-items-center justify-content-center text-white">
-  <!-- Video de fondo -->
-  <video autoplay muted loop playsinline class="bg-video" aria-label="Video de fondo mostrando tecnología y digitalización">
-    <source src="/videos/hero (2).mp4" type="video/mp4" />
-    Tu navegador no soporta videos HTML5.
-  </video>
+  <!-- Fondo estático -->
+  <div class="hero-backdrop" aria-hidden="true"></div>
 
   <!-- Overlay gradient -->
   <div class="hero-overlay"></div>
@@ -17,12 +14,6 @@ import "../../public/css/hero-section.css";
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-8 text-center" data-reveal-stagger>
         
-        <!-- Badge superior -->
-        <div class="hero-badge">
-          <i class="bi bi-lightning-charge"></i>
-          <span>Transformación Digital</span>
-        </div>
-
         <!-- Título principal -->
         <h1 class="hero-title">
           Digitalizá tu negocio.<br>
@@ -45,22 +36,6 @@ import "../../public/css/hero-section.css";
             <i class="bi bi-play-circle"></i>
             Ver soluciones
           </a>
-        </div>
-
-        <!-- Indicadores de confianza -->
-        <div class="hero-trust">
-          <div class="trust-item">
-            <i class="bi bi-shield-check"></i>
-            <span>100% Seguro</span>
-          </div>
-          <div class="trust-item">
-            <i class="bi bi-clock"></i>
-            <span>Entrega garantizada</span>
-          </div>
-          <div class="trust-item">
-            <i class="bi bi-headset"></i>
-            <span>Soporte 24/7</span>
-          </div>
         </div>
 
       </div>

@@ -4,8 +4,8 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-  title="Productos | Imperial Net — QRest & Inventory Desktop"
-  description="Conocé los productos de Imperial Net: QRest, el sistema administrativo para restaurantes con gestión de mesas, pedidos y carta digital QR, e Inventory Desktop, el sistema de gestión de inventario y ventas para PyMEs con escáner incluido."
+  title="Productos | Imperial Net — Ficus, QRest e Inventory Desktop"
+  description="Conocé los productos de Imperial Net: Ficus, el sistema de gestión para comercios con stock, ventas y reportes desde el celular; QRest, el sistema administrativo para restaurantes con mesas, pedidos y carta digital QR; e Inventory Desktop, gestión de inventario y ventas para PyMEs con escáner incluido."
 >
 
 <section class="products-page-hero">
@@ -139,9 +139,125 @@ import Footer from "../components/Footer.astro";
   </div>
 </section>
 
+<div class="section-divider"></div>
+
+<!-- Ficus -->
+<section id="ficus" class="product-detail-section">
+  <div class="container">
+    <div class="product-detail-grid" data-reveal-stagger>
+
+      <div class="product-detail-info">
+        <div class="ficus-header">
+          <img src="/img/ficus/ficus-logo.webp" alt="Logo Ficus" class="ficus-logo-img" loading="lazy" />
+          <div>
+            <div class="detail-badge web">
+              <i class="bi bi-globe"></i> Plataforma Web
+            </div>
+            <h2 class="detail-title">Ficus</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          Ficus es el sistema de gestión para comercios: stock, ventas, compras y los números
+          del negocio en un solo lugar. Funciona desde la computadora del mostrador o desde el
+          celular, sin instalar nada.
+        </p>
+        <p class="detail-desc">
+          Pensado para el día a día de un local: escaneás o buscás el producto, cobrás, y la
+          venta ya queda registrada con su stock descontado.
+        </p>
+
+        <div class="detail-features">
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Venta rápida con escáner o búsqueda</span></div>
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Control de stock y productos</span></div>
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Compras, gastos y cierre de caja</span></div>
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Clientes y cuentas corrientes</span></div>
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Reportes de ingresos, gastos y resultado</span></div>
+          <div class="df-item"><i class="bi bi-check-circle-fill"></i><span>Desde la compu o el celular, sin instalar</span></div>
+        </div>
+
+        <div class="detail-actions">
+          <a href="https://wa.me/5492392556779?text=Hola,%20quiero%20información%20sobre%20Ficus" target="_blank" rel="noopener noreferrer" class="btn-detail-whatsapp">
+            <i class="bi bi-whatsapp"></i> Quiero saber más
+          </a>
+        </div>
+      </div>
+
+      <div class="product-detail-visual">
+        <div class="ficus-shots">
+          <img src="/img/ficus/ficus-inicio.webp" alt="Ficus - inicio con accesos rápidos y ventas del día" class="ficus-shot" loading="lazy" />
+          <img src="/img/ficus/ficus-vender.webp" alt="Ficus - pantalla de venta rápida" class="ficus-shot ficus-shot-mid" loading="lazy" />
+          <img src="/img/ficus/ficus-reportes.webp" alt="Ficus - reportes de ingresos, gastos y resultado" class="ficus-shot" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <Footer />
 
 <style>
+
+  /* Ficus */
+  .ficus-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .ficus-logo-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    padding: 8px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 12px rgba(34, 197, 94, 0.25));
+  }
+
+  .ficus-header .detail-badge {
+    margin-bottom: 0.4rem;
+  }
+
+  .ficus-header .detail-title {
+    margin-bottom: 0;
+  }
+
+  .ficus-shots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Las tres capturas son de celular: la del medio se levanta un poco para
+     que el conjunto no se lea como tres imágenes sueltas. */
+  .ficus-shot {
+    width: 32%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .ficus-shot-mid {
+    transform: translateY(-22px);
+  }
+
+  @media (max-width: 575.98px) {
+    .ficus-shots {
+      gap: 0.5rem;
+    }
+
+    .ficus-shot-mid {
+      transform: none;
+    }
+  }
+
   .products-page-hero {
     padding: 120px 0 60px;
     background: linear-gradient(135deg, #0a0a0f 0%, #0f1419 60%, #101c2c 100%);

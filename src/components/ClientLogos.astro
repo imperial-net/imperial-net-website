@@ -1,0 +1,56 @@
+---
+import "../styles/client-logos.css";
+
+// Cinta continua de clientes (marquesina), no un carrusel de slides: no hay
+// páginas donde queden escondidos los últimos logos ni controles que tocar,
+// todos pasan por pantalla. La lista se renderiza dos veces para que el
+// bucle no tenga corte; la copia va con aria-hidden para no duplicar los
+// nombres en lectores de pantalla.
+//
+// La animación es un solo transform sobre la cinta (se compone en GPU) y se
+// pausa cuando la sección sale de pantalla, igual que el resto del sitio.
+//
+// Ensueños y Sol Fotofashion son marcas de un solo color sobre fondo claro,
+// así que en public/img/clientes están en negativo (tinta clara): sobre el
+// fondo oscuro del sitio, en positivo desaparecían.
+const clientes = [
+  { nombre: "El Ceibo", archivo: "el-ceibo.webp" },
+  { nombre: "Coblan", archivo: "coblan.webp" },
+  { nombre: "Super Hijitus", archivo: "super-hijitus.webp" },
+  { nombre: "Tienda en Sueños", archivo: "tienda-en-suenios.webp" },
+  { nombre: "Sol Fotofashion", archivo: "sol-fotofashion.webp" },
+  { nombre: "Rico & Abundante", archivo: "rico-abundante.webp" },
+  { nombre: "Saneamiento Salliqueló", archivo: "saneamiento-salliquelo.webp" },
+  { nombre: "Evah Estética Integral", archivo: "evah.webp" },
+  { nombre: "Imparable", archivo: "imparable.webp" },
+  { nombre: "Mi Chofer", archivo: "mi-chofer.webp" },
+  { nombre: "Indiana Deco", archivo: "indiana-deco.webp" },
+];
+---
+
+<section id="clientes" class="clients-section" aria-labelledby="clientes-titulo">
+  <h2 id="clientes-titulo" class="clients-title">Ya trabajan con nosotros</h2>
+
+  <div class="clients-viewport">
+    <div class="clients-track">
+      {
+        [0, 1].map((copia) => (
+          <ul class="clients-list" aria-hidden={copia === 1 ? "true" : undefined}>
+            {clientes.map((cliente) => (
+              <li class="client-item">
+                <img
+                  src={`/img/clientes/${cliente.archivo}`}
+                  alt={copia === 0 ? cliente.nombre : ""}
+                  width="160"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+</section>

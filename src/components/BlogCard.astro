@@ -1,5 +1,5 @@
 ---
-import "../../public/css/blog-card.css";
+import "../styles/blog-card.css";
 const { post } = Astro.props;
 const date = post.frontmatter.date
   ? new Date(post.frontmatter.date).toLocaleDateString('es-AR', {

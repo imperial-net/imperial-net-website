@@ -1,5 +1,5 @@
 ---
-import "../../public/css/solutions-section.css";
+import "../styles/solutions-section.css";
 ---
 
 <section id="soluciones" class="solutions-section section-transition">
@@ -21,23 +21,74 @@ import "../../public/css/solutions-section.css";
     <div class="solutions-header text-center" data-reveal-stagger>
       <div class="section-badge">
         <i class="bi bi-lightning-charge"></i>
-        <span>Nuestras Especialidades</span>
+        <span>Qué hacemos</span>
       </div>
       
       <h2 class="section-title">
-        Soluciones Digitales 
-        <span class="text-gradient">a Medida</span>
+        Esto es lo que
+        <span class="text-gradient">hacemos</span>
       </h2>
       
       <p class="section-subtitle">
-        Transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de tu negocio
+        Casi todo lo que hacemos son sistemas que ordenan la administración de un
+        negocio. Hay tres formas de empezar.
       </p>
     </div>
 
     <!-- Grid de soluciones -->
     <div class="solutions-grid" data-reveal-stagger>
 
-      <!-- Desarrollo Web -->
+      <!-- Sistemas de gestión a medida -->
+      <div class="solution-card">
+        <div class="card-inner">
+          <div class="card-icon">
+            <i class="bi bi-diagram-3"></i>
+            <div class="icon-bg"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Sistemas de gestión a medida</h3>
+            <p class="card-description">
+              Armamos el sistema según cómo trabaja tu negocio: socios y cuotas, stock,
+              ventas, facturación. Sin funciones que no vas a usar.
+            </p>
+            <ul class="card-features">
+              <li><i class="bi bi-check-circle"></i> Control de stock e inventario</li>
+              <li><i class="bi bi-check-circle"></i> Cobros, cuotas y facturación</li>
+              <li><i class="bi bi-check-circle"></i> Reportes de tu negocio</li>
+            </ul>
+          </div>
+          <div class="card-hover-effect"></div>
+        </div>
+      </div>
+
+      <!-- Productos listos para usar -->
+      <div class="solution-card">
+        <div class="card-inner">
+          <div class="card-icon">
+            <i class="bi bi-box-seam"></i>
+            <div class="icon-bg"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Productos listos para usar</h3>
+            <p class="card-description">
+              Tres sistemas que ya desarrollamos y hoy funcionan en clientes nuestros.
+              Los ponés a andar enseguida, sin esperar un desarrollo desde cero.
+            </p>
+            <ul class="card-features">
+              <li><i class="bi bi-check-circle"></i> Ficus, gestión para comercios</li>
+              <li><i class="bi bi-check-circle"></i> QRest, para bares y restaurantes</li>
+              <li><i class="bi bi-check-circle"></i> Inventory Desktop, para escritorio</li>
+            </ul>
+            <a href="/productos" class="card-link">
+              Conocer los productos
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          <div class="card-hover-effect"></div>
+        </div>
+      </div>
+
+      <!-- Sitios web -->
       <div class="solution-card">
         <div class="card-inner">
           <div class="card-icon">
@@ -45,124 +96,15 @@ import "../../public/css/solutions-section.css";
             <div class="icon-bg"></div>
           </div>
           <div class="card-content">
-            <h3 class="card-title">Desarrollo Web</h3>
+            <h3 class="card-title">Sitios web</h3>
             <p class="card-description">
-              Sitios y sistemas web optimizados, responsivos y personalizados para potenciar tu presencia online.
+              Sitios rápidos, que se ven bien en el celular y que aparecen cuando
+              te buscan en Google.
             </p>
             <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> Responsive Design</li>
-              <li><i class="bi bi-check-circle"></i> SEO Optimizado</li>
-              <li><i class="bi bi-check-circle"></i> Alta Performance</li>
-            </ul>
-          </div>
-          <div class="card-hover-effect"></div>
-        </div>
-      </div>
-
-      <!-- Automatización de Procesos -->
-      <div class="solution-card">
-        <div class="card-inner">
-          <div class="card-icon">
-            <i class="bi bi-gear-wide-connected"></i>
-            <div class="icon-bg"></div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Automatización de Procesos</h3>
-            <p class="card-description">
-              Transformamos procesos manuales en flujos automáticos, mejorando productividad y reduciendo errores.
-            </p>
-            <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> Flujos Inteligentes</li>
-              <li><i class="bi bi-check-circle"></i> Integración API</li>
-              <li><i class="bi bi-check-circle"></i> Monitoreo 24/7</li>
-            </ul>
-          </div>
-          <div class="card-hover-effect"></div>
-        </div>
-      </div>
-
-      <!-- Paneles Administrativos -->
-      <div class="solution-card">
-        <div class="card-inner">
-          <div class="card-icon">
-            <i class="bi bi-speedometer2"></i>
-            <div class="icon-bg"></div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Paneles Administrativos</h3>
-            <p class="card-description">
-              Control total de tu negocio con dashboards intuitivos para gestionar usuarios, ventas, stock y más.
-            </p>
-            <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> Dashboard Interactivo</li>
-              <li><i class="bi bi-check-circle"></i> Reportes en Tiempo Real</li>
-              <li><i class="bi bi-check-circle"></i> Multi-usuario</li>
-            </ul>
-          </div>
-          <div class="card-hover-effect"></div>
-        </div>
-      </div>
-
-      <!-- Aplicaciones de Escritorio -->
-      <div class="solution-card">
-        <div class="card-inner">
-          <div class="card-icon">
-            <i class="bi bi-pc-display-horizontal"></i>
-            <div class="icon-bg"></div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Aplicaciones de Escritorio</h3>
-            <p class="card-description">
-              Sistemas offline robustos, ideales para negocios que requieren velocidad y funcionamiento local.
-            </p>
-            <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> Funcionamiento Offline</li>
-              <li><i class="bi bi-check-circle"></i> Alta Velocidad</li>
-              <li><i class="bi bi-check-circle"></i> Seguridad Local</li>
-            </ul>
-          </div>
-          <div class="card-hover-effect"></div>
-        </div>
-      </div>
-
-      <!-- Software a Medida -->
-      <div class="solution-card">
-        <div class="card-inner">
-          <div class="card-icon">
-            <i class="bi bi-boxes"></i>
-            <div class="icon-bg"></div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Software a Medida</h3>
-            <p class="card-description">
-              Soluciones personalizadas desde cero, ajustadas exactamente a los procesos de tu negocio.
-            </p>
-            <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> 100% Personalizado</li>
-              <li><i class="bi bi-check-circle"></i> Escalable</li>
-              <li><i class="bi bi-check-circle"></i> Soporte Continuo</li>
-            </ul>
-          </div>
-          <div class="card-hover-effect"></div>
-        </div>
-      </div>
-
-      <!-- Análisis y Reportes -->
-      <div class="solution-card">
-        <div class="card-inner">
-          <div class="card-icon">
-            <i class="bi bi-graph-up-arrow"></i>
-            <div class="icon-bg"></div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Análisis y Reportes</h3>
-            <p class="card-description">
-              Visualizá el rendimiento con reportes claros, métricas clave y estadísticas automatizadas.
-            </p>
-            <ul class="card-features">
-              <li><i class="bi bi-check-circle"></i> Business Intelligence</li>
-              <li><i class="bi bi-check-circle"></i> Visualizaciones</li>
-              <li><i class="bi bi-check-circle"></i> Datos en Tiempo Real</li>
+              <li><i class="bi bi-check-circle"></i> Diseño adaptado a celulares</li>
+              <li><i class="bi bi-check-circle"></i> Optimizado para Google</li>
+              <li><i class="bi bi-check-circle"></i> Carga rápida</li>
             </ul>
           </div>
           <div class="card-hover-effect"></div>
@@ -173,8 +115,8 @@ import "../../public/css/solutions-section.css";
 
     <!-- CTA de la sección -->
     <div class="solutions-cta text-center" data-reveal>
-      <h3 class="cta-title">¿No encontrás lo que buscás?</h3>
-      <p class="cta-subtitle">Desarrollamos soluciones únicas para cada negocio</p>
+      <h3 class="cta-title">¿Tu caso es distinto?</h3>
+      <p class="cta-subtitle">Contanos qué necesitás y lo evaluamos sin costo</p>
       <a href="#contacto" class="btn-solutions-cta">
         <i class="bi bi-chat-dots"></i>
         Hablemos de tu proyecto
