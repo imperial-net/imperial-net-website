@@ -1,280 +1,105 @@
-# Imperial-Net - Sitio Web Corporativo
+# Imperial Net - Sitio web
 
-Sitio web oficial de Imperial-Net - Soluciones de Software a Medida para PyMEs. Plataforma moderna desarrollada con Astro que ofrece información sobre nuestros servicios, casos de éxito, testimonios y blog.
+Sitio institucional de Imperial Net, publicado en [imperial-net.com](https://imperial-net.com). Presenta los servicios de desarrollo de software a medida para PyMEs, los productos propios, los clientes y un blog, y recibe consultas por un formulario de contacto.
 
-## 🚀 Tecnologías Utilizadas
+## Stack
 
-- **[Astro 5.12.3](https://astro.build)** - Framework web moderno y ultrarrápido
-- **[Bootstrap 5.3.7](https://getbootstrap.com)** - Framework CSS para diseño responsive
-- **[AOS 2.3.4](https://michalsnik.github.io/aos/)** - Animate On Scroll library
-- **[Bootstrap Icons](https://icons.getbootstrap.com)** - Biblioteca de iconos
-- **[Sharp](https://sharp.pixelplumbing.com/)** - Procesamiento de imágenes de alto rendimiento
-- **[PHPMailer](https://github.com/PHPMailer/PHPMailer)** - Servicio de envío de emails SMTP
+- [Astro 5](https://astro.build), generación de sitio estático
+- Bootstrap 5 y Bootstrap Icons
+- Sass para la personalización de Bootstrap
+- `@astrojs/sitemap` para generar el sitemap
+- PHP con PHPMailer para el formulario de contacto
 
-## 📁 Estructura del Proyecto
+## Páginas
+
+| Ruta | Contenido |
+|---|---|
+| `/` | Página principal |
+| `/productos` | Detalle de los productos propios: QRest, Inventory Desktop y Ficus |
+| `/blog` | Listado de artículos |
+| `/blog/[artículo]` | Siete artículos sobre digitalización, automatización, inventario, atención al cliente, métricas y software a medida |
+
+La página principal se arma con estas secciones, en orden: hero, cinta de logos de clientes, soluciones, nosotros, testimonios, blog, preguntas frecuentes, contacto y llamado a la acción. El botón flotante de WhatsApp está en todas las páginas.
+
+## Estructura
 
 ```
 imperial-net-website/
-├── public/                      # Archivos estáticos
-│   ├── css/                    # Estilos CSS modulares
-│   │   ├── navbar.css          # Estilos del navbar
-│   │   ├── hero-section.css    # Estilos del hero
-│   │   ├── solutions-section.css
-│   │   ├── about-section.css
-│   │   ├── cases-section.css
-│   │   └── testimonials-section.css
-│   ├── img/                    # Imágenes optimizadas
-│   │   ├── logo.webp           # Logo principal (16KB)
-│   │   └── logos/              # Logos de clientes (WebP)
-│   ├── videos/                 # Videos
-│   │   └── hero (2).mp4        # Video del hero (2MB)
-│   ├── robots.txt              # Configuración para crawlers
-│   ├── sitemap.xml             # Mapa del sitio
-│   ├── site.webmanifest        # Manifest PWA
-│   └── favicon.ico             # Favicons optimizados
+├── public/                 favicons, manifest, robots.txt e imágenes
+│   └── img/                logos, clientes, productos y blog
 ├── src/
-│   ├── components/             # Componentes Astro
-│   │   ├── Navbar.astro        # Navegación principal
-│   │   ├── HeroSection.astro   # Sección hero
-│   │   ├── SolutionsSection.astro
-│   │   ├── AboutSection.astro
-│   │   ├── CasesSection.astro  # Casos de éxito
-│   │   ├── Testimonials.astro  # Testimonios
-│   │   ├── BlogSection.astro
-│   │   ├── FAQ.astro
-│   │   ├── ContactSection.astro
-│   │   ├── CTASection.astro
-│   │   ├── Footer.astro
-│   │   └── WhatsAppButton.astro
+│   ├── components/         una sección del sitio por componente
 │   ├── layouts/
-│   │   └── BaseLayout.astro    # Layout base con SEO
-│   ├── pages/
-│   │   ├── index.astro         # Página principal
-│   │   └── blog/               # Artículos del blog
-│   │       ├── index.astro
-│   │       ├── automatizacion-para-pymes.astro
-│   │       ├── como-elegir-un-software-a-medida.astro
-│   │       └── por-que-digitalizar-tu-empresa.astro
-│   └── styles/
-│       ├── global.css          # Estilos globales (imports)
-│       └── base.css            # Estilos base del sitio
-└── package.json
-
+│   │   └── BaseLayout.astro    meta tags, Open Graph y carga de estilos y scripts
+│   ├── pages/              rutas del sitio
+│   ├── styles/             un archivo CSS por componente, más base y global
+│   ├── services/           backend PHP del formulario de contacto
+│   └── config.ts           número de WhatsApp
+├── .htaccess               configuración de Apache para el hosting
+└── astro.config.mjs
 ```
 
-## 🎨 Características Principales
+## Desarrollo
 
-### 1. **Diseño Moderno y Responsive**
-- Diseño mobile-first con Bootstrap 5
-- Animaciones suaves con AOS
-- Efectos visuales modernos (glassmorphism, gradientes)
-- Navegación sticky con indicador de sección activa
-
-### 2. **Secciones del Sitio**
-- **Hero**: Video de fondo con CTA principal
-- **Soluciones**: Grid de servicios ofrecidos
-- **Nosotros**: Información corporativa con stats
-- **Casos de Éxito**: Portfolio de clientes
-- **Testimonios**: Opiniones de clientes reales
-- **Blog**: Artículos sobre digitalización
-- **FAQ**: Preguntas frecuentes
-- **Contacto**: Formulario y datos de contacto
-- **CTA**: Llamadas a la acción estratégicas
-
-### 3. **Optimizaciones de Performance**
-
-#### Imágenes
-- ✅ Formato WebP (61% reducción de peso)
-- ✅ Lazy loading para imágenes off-screen
-- ✅ Dimensiones width/height especificadas
-- ✅ Alt tags descriptivos para SEO
-
-#### CSS
-- ✅ CSS modular por componente
-- ✅ Carga asíncrona de CSS no crítico
-- ✅ Preconnect a CDNs externos
-- ✅ ~2400 líneas organizadas en 7 archivos
-
-#### JavaScript
-- ✅ Scripts con defer
-- ✅ Lazy loading de bibliotecas
-- ✅ Event listeners optimizados
-
-### 4. **SEO Optimizado**
-
-#### Meta Tags
-- ✅ Title y descriptions únicos
-- ✅ Open Graph para redes sociales
-- ✅ Twitter Cards
-- ✅ Canonical URLs dinámicos
-- ✅ Meta keywords relevantes
-
-#### Structured Data
-- ✅ Organization schema (JSON-LD)
-- ✅ Logo y datos corporativos
-- ✅ Redes sociales vinculadas
-
-#### Indexación
-- ✅ robots.txt configurado
-- ✅ sitemap.xml completo
-- ✅ Meta robots: index, follow
-- ✅ Alt tags en todas las imágenes
-
-### 5. **Accesibilidad**
-- ✅ ARIA labels en elementos interactivos
-- ✅ Navegación por teclado
-- ✅ Contraste de colores adecuado
-- ✅ Texto alternativo descriptivo
-- ✅ HTML semántico
-
-## 🛠️ Instalación y Desarrollo
-
-### Requisitos Previos
-- Node.js 18+
-- npm o yarn
-
-### Instalación
+Requisitos: Node.js 18 o superior.
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/imperial-net-website.git
-
-# Entrar al directorio
-cd imperial-net-website
-
-# Instalar dependencias
 npm install
-```
-
-### Comandos Disponibles
-
-```bash
-# Iniciar servidor de desarrollo
 npm run dev
-# Servidor disponible en http://localhost:4321
-
-# Compilar para producción
-npm run build
-
-# Previsualizar build de producción
-npm run preview
-
-# Ejecutar Astro CLI
-npm run astro
 ```
 
-##  SEO y Metadatos
+El sitio queda en `http://localhost:4321`.
 
-### URLs del Sitio
-- Principal: `https://imperial-net.com`
-- Blog: `https://imperial-net.com/blog`
-- Artículos: `https://imperial-net.com/blog/[slug]`
+| Comando | Acción |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Genera el sitio en `dist/` |
+| `npm run preview` | Sirve el build localmente |
 
-### Sitemap Structure
-```xml
-Priority 1.0: Página principal
-Priority 0.9: Soluciones, Blog
-Priority 0.8: Nosotros, Casos
-Priority 0.7: Artículos, Contacto
-```
+El número de WhatsApp se toma de la variable `PUBLIC_WHATSAPP_PHONE`. Si no está definida, se usa el valor de `src/config.ts`.
 
+## Formulario de contacto
 
-## 🎯 Casos de Éxito Destacados
+El formulario envía la consulta por `fetch` a `/services/api/_send-email.php`. El backend en PHP:
 
-1. **El Ceibo** - Club Deportivo
-2. **Coblan** - Servicios Empresariales
-3. **Sol Fotofashion** - Estudio Fotográfico
-4. **Tienda en Sueños** - E-commerce
-5. **Mi Chofer** - Marketing Digital
-6. **VisualReport** - IA y Tecnología
+- Valida los campos obligatorios (nombre, apellido, email y mensaje) y el formato del email y del teléfono.
+- Admite un archivo adjunto (PDF o imagen, hasta 30 MB), aunque el formulario actual no ofrece ese campo.
+- Envía la consulta a Imperial Net y un email de confirmación a quien escribió, con las plantillas de `src/services/email/templates/`.
+- Descarta el spam sin avisarle al bot: rechaza los envíos que no vienen de `imperial-net.com` y los que completan un campo trampa (honeypot).
 
-## 📱 Componentes Principales
+### Variables de entorno
 
-### Navbar
-- Navegación sticky con efecto scroll
-- Indicador de sección activa
-- Menú responsive (hamburger en móvil)
-- Logo optimizado en WebP
+| Variable | Descripción |
+|---|---|
+| `SMTP_HOST` | Servidor SMTP (por defecto `smtp.hostinger.com`) |
+| `SMTP_PORT` | Puerto (por defecto `465`) |
+| `SMTP_SECURE` | `true` para SSL (465), `false` para TLS (587) |
+| `SMTP_USER` | Cuenta que envía los emails |
+| `SMTP_PASS` | Contraseña de esa cuenta |
+| `RECIPIENT_EMAIL` | Dirección que recibe las consultas (por defecto, `SMTP_USER`) |
 
-### Hero Section
-- Video de fondo con overlay
-- CTAs principales
-- Badges informativos
-- Animaciones de entrada
+En el servidor, estas variables se definen en un archivo `env-config.php` fuera de la carpeta pública. En desarrollo también se pueden cargar desde un `.env`. Ninguno de los dos archivos se versiona.
 
-### Solutions Section
-- Grid responsive de servicios
-- Cards con hover effects
-- Iconos descriptivos
-- CTA de conversión
+## Publicación
 
-## 🚀 Deployment
-
-El sitio está optimizado para deployment en:
-- **Netlify** (recomendado)
-- **Vercel**
-- **GitHub Pages**
-- **Cloudflare Pages**
-
-### Build de Producción
-
-```bash
-npm run build
-# Output en: dist/
-```
-
-## � Servicio de Email
-
-El sitio incluye un servicio de email PHP con PHPMailer para el formulario de contacto.
-
-### Estructura del Servicio
+El sitio está alojado en un hosting con Apache. La estructura en el servidor es:
 
 ```
-src/services/
-├── api/
-│   └── _send-email.php      # Endpoint API
-├── email/
-│   ├── EmailService.php     # Clase principal
-│   ├── PHPMailer/           # Librería PHPMailer
-│   └── templates/           # Templates HTML de emails
-│       ├── consultation-email.html
-│       └── confirmation-email.html
-└── php/
-    ├── config/
-    │   └── mail.php         # Configuración
-    └── utils/
-        └── helpers.php      # Funciones auxiliares
+public_html/
+├── .htaccess        el de la raíz de este repositorio
+├── dist/            la salida de npm run build, completa
+├── services/        copia de src/services
+└── env-config.php   credenciales SMTP
 ```
 
-### Configuración
+El `.htaccess`:
 
-Crear un archivo `.env` en la raíz del proyecto:
+- Fuerza HTTPS.
+- Sirve el sitio desde `dist/` sin que la carpeta aparezca en la URL, así que basta con reemplazar `dist/` en cada publicación.
+- Deja `/services/` fuera de esa reescritura para que el PHP responda.
+- Bloquea el acceso a archivos sensibles y ocultos y el listado de directorios.
+- Agrega cabeceras de seguridad, caché de recursos estáticos y compresión gzip.
 
-```env
-SMTP_HOST=smtp.tuservidor.com
-SMTP_PORT=465
-SMTP_SECURE=true
-SMTP_USER=tu-email@dominio.com
-SMTP_PASS=tu-password
-RECIPIENT_EMAIL=destinatario@dominio.com
-```
+## Licencia
 
-### Deployment del Servicio de Email
-
-Para producción, copiar la carpeta `src/services` a `public/services` o configurar el servidor PHP correspondientemente.
-
-
-## 📄 Licencia
-
-© 2025 Imperial-Net. Todos los derechos reservados.
-
-## 👥 Contacto
-
-- **Email**: info@imperial-net.com
-- **WhatsApp**: +54 9 2392 55-6779
-- **Web**: [https://imperial-net.com](https://imperial-net.com)
-- **Ubicación**: Argentina
-
----
-
-**Desarrollado con** ❤️ **por Imperial-Net**
+Código propietario de Imperial Net. Todos los derechos reservados.
